@@ -175,7 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Oh86\Test\PriviteApiServiceProvider::class,
+        \Oh86\Test\PriviteApiServiceProvider::class,
+        \Oh86\Test\AuthServiceProvider::class,
     ],
 
     /*

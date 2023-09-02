@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Oh86\Test\Controllers\DebugController;
+use Oh86\Test\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::any("debug/session", [DebugController::class, "session"]);
+Route::any("debug/login", [DebugController::class, "login"]);
+
+Route::any("post/create", [PostController::class, "create"]);
+Route::any("post/update", [PostController::class, "update"]);
+

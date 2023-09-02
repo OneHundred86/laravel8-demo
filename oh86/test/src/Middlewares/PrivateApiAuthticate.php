@@ -4,7 +4,6 @@ namespace Oh86\Test\Middlewares;
 
 use Closure;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class PrivateApiAuthticate
@@ -21,11 +20,12 @@ class PrivateApiAuthticate
      */
     public function handle($request, Closure $next)
     {
+        $request->headers->set("accept", "application/json");
         Auth::shouldUse("private-api");
         if(!Auth::check()){
-            return (new JsonResponse())
-                ->setStatusCode(403)
-                ->setData(["errcode" => 403, "errmessage" => "校验失败"]);
+             return (new JsonResponse())
+                 ->setStatusCode(403)
+                 ->setData(["errcode" => 403, "errmessage" => "校验失败"]);
         }
 
         return $next($request);
