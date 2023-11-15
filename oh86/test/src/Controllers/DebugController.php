@@ -4,6 +4,7 @@ namespace Oh86\Test\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -48,5 +49,43 @@ class DebugController
         }
 
         return compact("all", "allFiles0", "allFiles", "headers");
+    }
+
+    public function wait(Request $request)
+    {
+        sleep($request->seconds);
+
+        return $request->all();
+    }
+
+    public function calcHash(Request $request)
+    {
+        $all = $request->all();
+        ksort($all);
+
+        $bufArr = [];
+        foreach($all as $key => $value){
+            // 文件，取md5值
+            if($value instanceof UploadedFile){
+                $value = md5_file($value->getPathname());
+            }
+
+            $bufArr[] = sprintf("%s=%s", $key, $value);
+        }
+        $buf = implode("&", $bufArr);
+
+        return [
+            "all" => $all,
+            "hash" => md5($buf),
+        ];
+    }
+
+    public function redirect(Request $request)
+    {
+        // 以当前路径为相对路径
+        // header("Location: ./test");
+
+        // 以根目录为相对路径
+        return redirect("test");
     }
 }

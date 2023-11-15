@@ -18,6 +18,9 @@ use Oh86\Test\Controllers\PostController;
 Route::any("debug/session", [DebugController::class, "session"]);
 Route::any("debug/login", [DebugController::class, "login"]);
 Route::any("debug/request/body", [DebugController::class, "requestBody"])->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
+Route::any("debug/wait", [DebugController::class, "wait"]);
+Route::any("debug/params/hash", [DebugController::class, "calcHash"])->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
+Route::any("debug/redirect", [DebugController::class, "redirect"]);
 
 Route::any("post/create", [PostController::class, "create"]);
 Route::any("post/update", [PostController::class, "update"]);
