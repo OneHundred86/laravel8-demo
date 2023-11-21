@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c61ff82cbf0142a401a48a8161e1595a",
+    "content-hash": "54fa9533652e97d5bdabb3e5d686a16c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2076,6 +2076,59 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.17.1"
             },
             "time": "2023-08-13T19:53:39+00:00"
+        },
+        {
+            "name": "oh86/sqllog",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OneHundred86/sqllog4laravel.git",
+                "reference": "5d64dc86bcfc802a32f00974f54780aaa4be0f44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OneHundred86/sqllog4laravel/zipball/5d64dc86bcfc802a32f00974f54780aaa4be0f44",
+                "reference": "5d64dc86bcfc802a32f00974f54780aaa4be0f44",
+                "shasum": ""
+            },
+            "require-dev": {
+                "laravel/framework": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Oh86\\Sqllog\\SqllogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Oh86\\Sqllog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chenguangjun",
+                    "email": "chen.gj@qq.com"
+                }
+            ],
+            "description": "log for sql in laravel framework",
+            "keywords": [
+                "laravel",
+                "php",
+                "slowlog",
+                "sql log"
+            ],
+            "support": {
+                "issues": "https://github.com/OneHundred86/sqllog4laravel/issues",
+                "source": "https://github.com/OneHundred86/sqllog4laravel/tree/v1.2"
+            },
+            "time": "2021-12-20T08:46:01+00:00"
         },
         {
             "name": "opis/closure",

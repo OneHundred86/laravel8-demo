@@ -83,9 +83,9 @@ class DebugController
     public function redirect(Request $request)
     {
         // 以当前路径为相对路径
-        // header("Location: ./test");
+        // header("Location: ./test?a=1#abc");
 
         // 以根目录为相对路径
-        return redirect("test");
+        return redirect("test?a=1#abc");
     }
 }
