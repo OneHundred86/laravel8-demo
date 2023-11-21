@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
+ * @property int $id
  * @property string $url
  * @property int $imageable_id
  * @property string $imageable_type
+ * @property Post | User $imageable
  */
 class Image extends Model
 {
