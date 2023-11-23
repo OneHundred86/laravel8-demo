@@ -25,7 +25,9 @@ class Post extends Model
      */
     public function image(): MorphOne
     {
-        return $this->morphOne(Image::class, 'imageable');
+        // return $this->morphOne(Image::class, 'imageable', "imageable_type", "imageable_id", "id");
+        // 效果和上面一样
+        return $this->morphOne(Image::class, "imageable");
     }
 
     /**
