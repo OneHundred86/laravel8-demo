@@ -22,6 +22,10 @@ Route::any("debug/wait", [DebugController::class, "wait"]);
 Route::any("debug/params/hash", [DebugController::class, "calcHash"])->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
 Route::any("debug/redirect", [DebugController::class, "redirect"]);
 
+// nginx直接显示：http://my.laravel8.local/README.pdf
+// php显示：http://my.laravel8.local/debug/file/view
+Route::any("debug/file/view", [DebugController::class, "viewFile"]);
+
 Route::any("post/create", [PostController::class, "create"]);
 Route::any("post/update", [PostController::class, "update"]);
 

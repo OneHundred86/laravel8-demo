@@ -88,4 +88,10 @@ class DebugController
         // 以根目录为相对路径
         return redirect("test?a=1#abc");
     }
+
+    public function viewFile()
+    {
+        $path = public_path("README.pdf");
+        return response(file_get_contents($path))->header("Content-Type", "application/pdf");
+    }
 }
