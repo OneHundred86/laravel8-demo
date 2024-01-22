@@ -177,6 +177,8 @@ return [
 
         \Oh86\Test\PriviteApiServiceProvider::class,
         \Oh86\Test\AuthServiceProvider::class,
+
+        \App\EloquentWithHttpProxy\EloquentWithHttpProxyServiceProvider::class,
     ],
 
     /*
