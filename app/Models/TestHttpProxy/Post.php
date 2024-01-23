@@ -1,26 +1,25 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\TestHttpProxy;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+# use Illuminate\Database\Eloquent\Model;
+use App\EloquentWithHttpProxy\Eloquent\Model;
 
-/**
- * @property int $id
- * @property ?Image $image
- * @property Collection $comments
- */
 class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ["title", "content"];
+    protected $table = "posts";
+    protected $connection = "httpproxy";
     // public $timestamps = false;
+
+    protected $guarded = [];
+
 
     /**
      * 获取文章图片

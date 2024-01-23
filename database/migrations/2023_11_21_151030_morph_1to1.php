@@ -20,6 +20,8 @@ class Morph1to1 extends Migration
             $table->id();
             $table->string("title");
             $table->mediumText("content");
+            $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create("images", function (Blueprint $table){
