@@ -2,6 +2,7 @@
 
 namespace App\Models\TestHttpProxy;
 
+use App\Events\PostSaved;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;

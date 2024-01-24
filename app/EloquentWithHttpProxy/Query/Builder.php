@@ -3,13 +3,20 @@
 namespace App\EloquentWithHttpProxy\Query;
 
 use App\EloquentWithHttpProxy\Connection;
+use Illuminate\Support\Facades\DB;
 
 class Builder
 {
     protected Connection $connection;
 
     /**
-     * @var array{method: string, arguments: array}
+     * 目标query builder
+     * @var \Illuminate\Database\Query\Builder
+     */
+    protected $targetQueryBuilder;
+
+    /**
+     * @var array{array{method: string, arguments: array}}
      */
     protected array $callArr;
 
@@ -21,12 +28,13 @@ class Builder
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
+        $this->targetQueryBuilder = DB::connection($connection->getTargetConnection())->query();
     }
 
     /**
      * @return Connection
      */
-    public function getConnection(): Connection
+    public function getConnection()
     {
         return $this->connection;
     }
@@ -43,8 +51,22 @@ class Builder
             return $this->fetchResult();
         }
 
+        /** 执行目标builder，设置属性 */
+        $this->targetQueryBuilder->$method(...$arguments);
+
         return $this;
     }
+
+    /**
+     * 获取目标builder的属性
+     * @param $name
+     * @return mixed
+     */
+    public function __get($name)
+    {
+        return $this->targetQueryBuilder->$name;
+    }
+
 
     /**
      * @return array

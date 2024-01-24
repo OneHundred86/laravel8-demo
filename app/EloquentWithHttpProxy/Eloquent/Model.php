@@ -16,4 +16,11 @@ class Model extends \Illuminate\Database\Eloquent\Model
         return parent::newEloquentBuilder($query);
     }
 
+    /**
+     * @inheritdoc
+     */
+    protected function newBaseQueryBuilder()
+    {
+        return $this->getConnection()->query();
+    }
 }

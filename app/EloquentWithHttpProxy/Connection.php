@@ -3,8 +3,10 @@
 namespace App\EloquentWithHttpProxy;
 
 use App\EloquentWithHttpProxy\Query\Builder as QueryBuilder;
+use Closure;
 use GuzzleHttp\Client;
 use Illuminate\Database\Connection as BaseConnection;
+use Illuminate\Support\Facades\DB;
 
 class Connection extends BaseConnection
 {
@@ -20,6 +22,8 @@ class Connection extends BaseConnection
         $this->config = $config;
 
         $this->http = new Client();
+
+        $this->queryGrammar = DB::connection($this->getTargetConnection())->getQueryGrammar();
     }
 
     public function getName()
@@ -64,7 +68,7 @@ class Connection extends BaseConnection
     }
 
     /**
-     * @param array $callArr
+     * @param array{array{method: string, arguments: array}} $callArr
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -82,5 +86,10 @@ class Connection extends BaseConnection
         // var_dump("body", $contents);
 
         return unserialize($contents);
+    }
+
+    public function transaction(Closure $callback, $attempts = 1)
+    {
+        throw new \Exception("不支持事务");
     }
 }
