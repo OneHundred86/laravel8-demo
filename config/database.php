@@ -104,7 +104,7 @@ return [
         ],
 
         'httpproxy' => [
-            'proxy_url' => env("APP_URL")."/db/http/proxy",
+            'proxy_url' => env("APP_URL")."/http/db",
             'target_connection' => 'mysql',
         ],
     ],

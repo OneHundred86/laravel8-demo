@@ -2,8 +2,10 @@
 
 namespace App\EloquentWithHttpProxy;
 
+use App\EloquentWithHttpProxy\Query\Builder as QueryBuilder;
 use Closure;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Database\Connection as BaseConnection;
 use Illuminate\Support\Facades\DB;
 
@@ -62,21 +64,38 @@ class Connection extends BaseConnection
         $this->http = $http;
     }
 
-    public function request(string $method, array $arguments)
+    /**
+     * @param string $method
+     * @param array $arguments
+     * @param string $objType :: Connection | QueryBuilder
+     * @param array|null $options
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function request(string $method, array $arguments, string $objType = "Connection", array $options = null)
     {
         $url = $this->config["proxy_url"];
         $response = $this->http->post($url, [
             "json" => [
                 "connection" => $this->getTargetConnection(),
+                "objType" => $objType,
                 "method" => $method,
                 "arguments" => base64_encode(json_encode($arguments)),
+                "options" => $options,
             ],
         ]);
 
         $contents = $response->getBody()->getContents();
-        // var_dump("body", $contents);
 
         return unserialize($contents);
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    public function query()
+    {
+        return new QueryBuilder($this, $this->getQueryGrammar(), $this->getPostProcessor());
     }
 
     public function select($query, $bindings = [], $useReadPdo = true)
