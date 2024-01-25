@@ -2,7 +2,6 @@
 
 namespace App\EloquentWithHttpProxy;
 
-use App\EloquentWithHttpProxy\Query\Builder as QueryBuilder;
 use Closure;
 use GuzzleHttp\Client;
 use Illuminate\Database\Connection as BaseConnection;
@@ -14,6 +13,11 @@ class Connection extends BaseConnection
     protected Client $http;
 
     /**
+     * @var \Illuminate\Database\Connection
+     */
+    protected $targetConnection;
+
+    /**
      * Create a new database connection instance.
      * @param array $config
      */
@@ -23,9 +27,10 @@ class Connection extends BaseConnection
 
         $this->http = new Client();
 
-        $targetConnection = DB::connection($this->getTargetConnection());
-        $this->queryGrammar = $targetConnection->getQueryGrammar();
-        $this->postProcessor = $targetConnection->getPostProcessor();
+        $this->targetConnection = DB::connection($this->getTargetConnection());
+
+        $this->queryGrammar = $this->targetConnection->getQueryGrammar();
+        $this->postProcessor = $this->targetConnection->getPostProcessor();
     }
 
     public function getName()
@@ -73,8 +78,6 @@ class Connection extends BaseConnection
 
         return unserialize($contents);
     }
-
-
 
     public function select($query, $bindings = [], $useReadPdo = true)
     {
