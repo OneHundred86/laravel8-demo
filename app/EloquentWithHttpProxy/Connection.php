@@ -23,7 +23,9 @@ class Connection extends BaseConnection
 
         $this->http = new Client();
 
-        $this->queryGrammar = DB::connection($this->getTargetConnection())->getQueryGrammar();
+        $targetConnection = DB::connection($this->getTargetConnection());
+        $this->queryGrammar = $targetConnection->getQueryGrammar();
+        $this->postProcessor = $targetConnection->getPostProcessor();
     }
 
     public function getName()
@@ -55,30 +57,14 @@ class Connection extends BaseConnection
         $this->http = $http;
     }
 
-
-
-    /**
-     * Get a new query builder instance.
-     *
-     * @return QueryBuilder
-     */
-    public function query()
-    {
-        return new QueryBuilder($this);
-    }
-
-    /**
-     * @param array{array{method: string, arguments: array}} $callArr
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function request(array $callArr)
+    public function request(string $method, array $arguments)
     {
         $url = $this->config["proxy_url"];
         $response = $this->http->post($url, [
             "json" => [
                 "connection" => $this->getTargetConnection(),
-                "callArr" => $callArr,
+                "method" => $method,
+                "arguments" => base64_encode(json_encode($arguments)),
             ],
         ]);
 
@@ -88,7 +74,59 @@ class Connection extends BaseConnection
         return unserialize($contents);
     }
 
+
+
+    public function select($query, $bindings = [], $useReadPdo = true)
+    {
+        return $this->request(__FUNCTION__, func_get_args());
+    }
+
+    public function cursor($query, $bindings = [], $useReadPdo = true)
+    {
+        return $this->request(__FUNCTION__, func_get_args());
+    }
+
+    public function insert($query, $bindings = [])
+    {
+        return $this->request(__FUNCTION__, func_get_args());
+    }
+
+    public function update($query, $bindings = [])
+    {
+        return $this->request(__FUNCTION__, func_get_args());
+    }
+
+    public function delete($query, $bindings = [])
+    {
+        return $this->request(__FUNCTION__, func_get_args());
+    }
+
+    public function statement($query, $bindings = [])
+    {
+        return $this->request(__FUNCTION__, func_get_args());
+    }
+
+    public function affectingStatement($query, $bindings = [])
+    {
+        return $this->request(__FUNCTION__, func_get_args());
+    }
+
     public function transaction(Closure $callback, $attempts = 1)
+    {
+        throw new \Exception("不支持事务");
+    }
+
+    public function beginTransaction()
+    {
+        throw new \Exception("不支持事务");
+    }
+
+    public function commit()
+    {
+        throw new \Exception("不支持事务");
+    }
+
+    public function rollBack($toLevel = null)
     {
         throw new \Exception("不支持事务");
     }

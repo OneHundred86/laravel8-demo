@@ -2,13 +2,12 @@
 
 namespace App\Models\TestHttpProxy;
 
-use App\Events\PostSaved;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
-# use Illuminate\Database\Eloquent\Model;
-use App\EloquentWithHttpProxy\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
+#use App\EloquentWithHttpProxy\Eloquent\Model;
 
 class Post extends Model
 {
