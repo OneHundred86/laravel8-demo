@@ -179,6 +179,7 @@ return [
         \Oh86\Test\AuthServiceProvider::class,
 
         \App\EloquentWithHttpProxy\EloquentWithHttpProxyServiceProvider::class,
+        \App\ContainerTest\ContainerServiceProvider::class,
     ],
 
     /*
