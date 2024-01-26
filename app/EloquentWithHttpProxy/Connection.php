@@ -65,6 +65,8 @@ class Connection extends BaseConnection
     }
 
     /**
+     * 注意：一个请求只能进行一次dml操作，对于事务里面嵌套多个dml操作的情况不支持。
+     *      insert之后再去获取last-insert-id的情况，需要放到同一个request里面。
      * @param string $method
      * @param array $arguments
      * @param string $objType :: Connection | QueryBuilder
