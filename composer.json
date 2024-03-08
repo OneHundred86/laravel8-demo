@@ -13,6 +13,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "mongodb/laravel-mongodb": "^3.8",
+        "oh86/sm": "dev-main",
         "oh86/sqllog": "^1.2"
     },
     "require-dev": {
@@ -62,5 +63,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "oh86/sm": {
+            "type": "path",
+            "url": "/Users/admin/Code/php/laravel-component/sm"
+        }
+    }
 }
