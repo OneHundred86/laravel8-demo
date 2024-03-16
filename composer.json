@@ -14,7 +14,8 @@
         "laravel/tinker": "^2.5",
         "mongodb/laravel-mongodb": "^3.8",
         "oh86/sm": "dev-main",
-        "oh86/sqllog": "^1.2"
+        "oh86/sqllog": "^1.2",
+        "webklex/laravel-imap": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
