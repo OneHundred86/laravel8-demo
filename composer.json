@@ -15,6 +15,7 @@
         "mongodb/laravel-mongodb": "^3.8",
         "oh86/sm": "dev-main",
         "oh86/sqllog": "^1.2",
+        "thiagobrauer/laravel-kafka": "dev-main",
         "webklex/laravel-imap": "*"
     },
     "require-dev": {
@@ -68,7 +69,7 @@
     "repositories": {
         "oh86/sm": {
             "type": "path",
-            "url": "/Users/admin/Code/php/laravel-component/sm"
+            "url": "/data/codes/php/sm"
         }
     }
 }
