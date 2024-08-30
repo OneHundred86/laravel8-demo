@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Oh86\Test\Controllers\DebugController;
 use Oh86\Test\Controllers\PostController;
+use App\Http\Middleware\Middelware1;
+use App\Http\Middleware\Middelware2;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +32,8 @@ Route::any("debug/file/view", [DebugController::class, "viewFile"]);
 Route::any("post/create", [PostController::class, "create"]);
 Route::any("post/update", [PostController::class, "update"]);
 
+
+Route::any("/middleware/order", function () {
+    Log::debug("handler");
+    return "ok";
+})->middleware([Middelware1::class, Middelware2::class]);

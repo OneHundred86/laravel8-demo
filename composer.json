@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "ext-pdo": "*",
+        "doctrine/dbal": "^2.2",
         "firebase/php-jwt": "^6.10",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -13,7 +15,9 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "mongodb/laravel-mongodb": "^3.8",
-        "oh86/sm": "dev-main",
+        "oh86/laravel-yashan": "^1.0@dev",
+        "oh86/sm": "*",
+        "oh86/sm_cryptor": "dev-main",
         "oh86/sqllog": "^1.2",
         "thiagobrauer/laravel-kafka": "dev-main",
         "webklex/laravel-imap": "*"
@@ -67,9 +71,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": {
-        "oh86/sm": {
+        "oh86/sm_cryptor": {
             "type": "path",
-            "url": "/data/codes/php/sm"
+            "url": "/data/codes/php/sm_cryptor"
+        },
+        "oh86/laravel-yashan": {
+            "type": "path",
+            "url": "/data/codes/php/laravel-yashan"
         }
     }
 }

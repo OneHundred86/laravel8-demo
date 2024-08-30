@@ -19,8 +19,13 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ["title", "content"];
-    // public $timestamps = false;
+    // protected $fillable = ["title", "content"];
+    protected $guarded = false;
+    public $timestamps = true;
+
+//    protected $casts =[
+//        "created_at" => "datetime:Y-m-d H:i:s",
+//    ];
 
     /**
      * 获取文章图片
