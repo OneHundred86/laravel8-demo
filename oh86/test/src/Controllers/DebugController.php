@@ -22,7 +22,7 @@ class DebugController
     {
         $id = $request->input("id");
         /** @var User $user */
-        $user= User::query()->find($id);
+        $user = User::query()->find($id);
         Auth::login($user);
 
         return $user;
@@ -44,7 +44,7 @@ class DebugController
          * @var string $key
          * @var \Illuminate\Http\UploadedFile $file
          */
-        foreach ($allFiles0 as $key => $file){
+        foreach ($allFiles0 as $key => $file) {
             $allFiles[$key] = $file->getClientOriginalName();
         }
 
@@ -64,9 +64,9 @@ class DebugController
         ksort($all);
 
         $bufArr = [];
-        foreach($all as $key => $value){
+        foreach ($all as $key => $value) {
             // 文件，取md5值
-            if($value instanceof UploadedFile){
+            if ($value instanceof UploadedFile) {
                 $value = md5_file($value->getPathname());
             }
 
@@ -93,5 +93,13 @@ class DebugController
     {
         $path = public_path("README.pdf");
         return response(file_get_contents($path))->header("Content-Type", "application/pdf");
+    }
+
+    public function echo(Request $request)
+    {
+        return [
+            "headers" => $request->headers->all(),
+            "params" => $request->all(),
+        ];
     }
 }

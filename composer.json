@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
@@ -17,8 +20,9 @@
         "mongodb/laravel-mongodb": "^3.8",
         "oh86/laravel-yashan": "^1.0@dev",
         "oh86/sm": "*",
-        "oh86/sm_cryptor": "dev-main",
+        "oh86/sm_cryptor": "^1.3",
         "oh86/sqllog": "^1.2",
+        "oh86/laravel-gw": "*",
         "thiagobrauer/laravel-kafka": "dev-main",
         "webklex/laravel-imap": "*"
     },
@@ -71,13 +75,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": {
-        "oh86/sm_cryptor": {
-            "type": "path",
-            "url": "/data/codes/php/sm_cryptor"
-        },
         "oh86/laravel-yashan": {
             "type": "path",
             "url": "/data/codes/php/laravel-yashan"
+        },
+        "oh86/laravel-gw": {
+            "type": "path",
+            "url": "/data/codes/php/laravel-gw"
         }
     }
 }

@@ -24,6 +24,7 @@ Route::any("debug/request/body", [DebugController::class, "requestBody"])->witho
 Route::any("debug/wait", [DebugController::class, "wait"]);
 Route::any("debug/params/hash", [DebugController::class, "calcHash"])->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
 Route::any("debug/redirect", [DebugController::class, "redirect"]);
+Route::any("debug/echo", [DebugController::class, "echo"]);
 
 // nginx直接显示：http://my.laravel8.local/README.pdf
 // php显示：http://my.laravel8.local/debug/file/view
