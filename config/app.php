@@ -182,6 +182,7 @@ return [
         \Oh86\Test\PriviteApiServiceProvider::class,
         \Oh86\Test\AuthServiceProvider::class,
         \Oh86\Test\SmCryptorTestProvider::class,
+        \Oh86\Test\TestIoCServiceProvider::class,
     ],
 
     /*
