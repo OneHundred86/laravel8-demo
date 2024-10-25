@@ -32,6 +32,7 @@ class TestIoCCommand extends Command
     {
         $this->demo1();
         $this->demo2();
+        $this->demo3();
     }
 
     public function demo1()
@@ -46,6 +47,7 @@ class TestIoCCommand extends Command
          */
         try {
             $limiter = app(RateLimiter::class);
+            $this->info(__METHOD__ . ": 解析注入成功: " . get_class($limiter));
         } catch (BindingResolutionException $e) {
             $this->error(__METHOD__ . ": " . $e->getMessage());
         }
@@ -53,8 +55,27 @@ class TestIoCCommand extends Command
 
     public function demo2()
     {
+        // 直接解析 MyRateLimiter
         try {
             $limiter = app(MyRateLimiter::class);
+            $this->info(__METHOD__ . ": 解析注入成功: " . get_class($limiter));
+        } catch (BindingResolutionException $e) {
+            $this->error(__METHOD__ . ": " . $e->getMessage());
+        }
+    }
+
+    public function demo3()
+    {
+        // 先在容器注入 MyRateLimiter
+        app()->bind(MyRateLimiter::class, function () {
+            $cache = app(\Illuminate\Contracts\Cache\Repository::class);
+            return new MyRateLimiter($cache, 1);
+        });
+
+        // 再解析 MyRateLimiter
+        try {
+            $limiter = app(MyRateLimiter::class);
+            $this->info(__METHOD__ . ": 解析注入成功: " . get_class($limiter));
         } catch (BindingResolutionException $e) {
             $this->error(__METHOD__ . ": " . $e->getMessage());
         }
