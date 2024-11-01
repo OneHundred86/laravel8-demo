@@ -8,6 +8,8 @@ return [
     "local" => [
         "sm4_key" => env("SM4_KEY"),
         "hmac_key" => env("HMAC_KEY"),
+        "sm2_public_key" => env("SM2_PUBLIC_KEY"),
+        "sm2_private_key" => env("SM2_PRIVATE_KEY"),
     ],
 
     // 电信密码池加解密

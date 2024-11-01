@@ -1,4 +1,4 @@
-log_channel: 
+log_channel: ${LANG:zh_CN}
 routes:
   app1:
     name: 应用1

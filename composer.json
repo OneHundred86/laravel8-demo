@@ -20,9 +20,8 @@
         "mongodb/laravel-mongodb": "^3.8",
         "oh86/laravel-yashan": "^1.0@dev",
         "oh86/sm": "*",
-        "oh86/sm_cryptor": "^1.3",
+        "oh86/sm_cryptor": "*",
         "oh86/sqllog": "^1.2",
-        "oh86/laravel-gw": "*",
         "thiagobrauer/laravel-kafka": "dev-main",
         "webklex/laravel-imap": "*"
     },
@@ -82,6 +81,10 @@
         "oh86/laravel-gw": {
             "type": "path",
             "url": "/data/codes/php/laravel-gw"
+        },
+        "oh86/sm_cryptor": {
+            "type": "path",
+            "url": "/data/codes/php/sm_cryptor"
         }
     }
 }
