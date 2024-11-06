@@ -3,10 +3,12 @@
 namespace Oh86\Test\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class DebugController
 {
@@ -86,7 +88,9 @@ class DebugController
         // header("Location: ./test?a=1#abc");
 
         // 以根目录为相对路径
-        return redirect("test?a=1#abc");
+        URL::forceRootUrl(config("app.url"));
+        // return redirect("test?a=1#abc");
+        return new RedirectResponse("/test?a=1#abc");
     }
 
     public function viewFile()
