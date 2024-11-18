@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 
@@ -105,5 +106,12 @@ class DebugController
             "headers" => $request->headers->all(),
             "params" => $request->all(),
         ];
+    }
+
+    public function log(Request $request)
+    {
+        Log::debug(__METHOD__, $request->all());
+
+        return "ok";
     }
 }
