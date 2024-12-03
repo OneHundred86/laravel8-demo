@@ -1,0 +1,57 @@
+/**
+* @doc https://docs.devsense.com/en/vscode/debug/launch-json
+*/
+{
+    "configurations": [
+        // 调试当前文件
+        {
+            "name": "Launch current script in console",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "externalConsole": false,
+            "port": 9003,
+            "args": []
+        },
+        // 内置服务器，每个php文件是一个路径
+        {
+            "name": "Launch built-in server",
+            "type": "php",
+            "request": "launch",
+            "runtimeArgs": [
+                "-S",
+                "localhost:8000",
+                "-t",
+                "."
+            ],
+            "port": 9003,
+            "serverReadyAction": {
+                "action": "openExternally"
+            }
+        },
+        // 可用于fpm模式
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": [
+                9003,
+                9000
+            ]
+        },
+        // 命令行调试模式：php artisan debug:test abc
+        {
+            "name": "debug for cli(artisan)",
+            "type": "php",
+            "request": "launch",
+            "program": "${cwd}/artisan",
+            "cwd": "${workspaceRoot}",
+            "externalConsole": false,
+            "args": [
+                "debug:test",
+                "abc"
+            ]
+        }
+    ]
+}
