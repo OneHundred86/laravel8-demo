@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4|^8.0",
         "ext-pdo": "*",
         "doctrine/dbal": "^2.2",
         "firebase/php-jwt": "^6.10",
@@ -23,6 +23,7 @@
         "oh86/sm_cryptor": "*",
         "oh86/sqllog": "^1.2",
         "thiagobrauer/laravel-kafka": "dev-main",
+        "tymon/jwt-auth": "^1.0",
         "webklex/laravel-imap": "*"
     },
     "require-dev": {
@@ -81,10 +82,6 @@
         "oh86/laravel-gw": {
             "type": "path",
             "url": "/data/codes/php/laravel-gw"
-        },
-        "oh86/sm_cryptor": {
-            "type": "path",
-            "url": "/data/codes/php/sm_cryptor"
         }
     }
 }

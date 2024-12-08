@@ -1,0 +1,1 @@
+#### @doc https://github.com/tymondesigns/jwt-auth/blob/2.x/docs/quick-start.md

@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -44,6 +45,11 @@ return [
         "private-api" => [
             "driver" => "private-api-driver",
         ],
+
+        'jwt-api' => [
+            'driver' => 'jwt',
+            'provider' => 'jwt-users',
+        ],
     ],
 
     /*
@@ -73,6 +79,12 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+
+        'jwt-users' => [
+            'driver' => 'eloquent',
+            'model' => App\JwtAuthTest\Models\User::class,
+        ],
     ],
 
     /*
