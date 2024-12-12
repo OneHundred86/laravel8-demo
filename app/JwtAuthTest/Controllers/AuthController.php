@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth:jwt-api', ['except' => ['login']]);
+        // $this->middleware('auth:jwt-auth', ['except' => ['login']]);
     }
 
     /**
@@ -27,7 +27,7 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        auth()->shouldUse('jwt-api');
+        auth()->shouldUse('jwt-auth');
 
         // $credentials = $request->only('email', 'password');
         // if (!$token = auth()->attempt($credentials)) {

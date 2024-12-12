@@ -46,7 +46,10 @@ return [
             "driver" => "private-api-driver",
         ],
 
-        'jwt-api' => [
+        'jwt-guest' => [
+            'driver' => 'jwt-guest-guard',
+        ],
+        'jwt-auth' => [
             'driver' => 'jwt',
             'provider' => 'jwt-users',
         ],
