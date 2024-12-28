@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SanctumAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Oh86\Test\Controllers\PrivateApiController;
@@ -22,3 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::any("private/test", [PrivateApiController::class, "test"])->middleware(PrivateApiAuthticate::class);
+
+
+// sanctum test
+Route::post('sanctum/login', [SanctumAuthController::class, 'login']);
+Route::get('sanctum/user', [SanctumAuthController::class, 'getUserInfo'])->middleware('auth:sanctum');

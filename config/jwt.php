@@ -173,6 +173,7 @@ return [
         // 'foo',
         // 'bar',
         'jti',
+        'iss',
     ],
 
     /*
