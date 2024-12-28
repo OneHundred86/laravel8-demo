@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SanctumAuthController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Oh86\Test\Controllers\PrivateApiController;
@@ -28,3 +29,7 @@ Route::any("private/test", [PrivateApiController::class, "test"])->middleware(Pr
 // sanctum test
 Route::post('sanctum/login', [SanctumAuthController::class, 'login']);
 Route::get('sanctum/user', [SanctumAuthController::class, 'getUserInfo'])->middleware('auth:sanctum');
+
+// Auth test
+// @doc: https://learnku.com/docs/laravel/8.x/authorization/9382#e63e30
+Route::post('post/add', [PostController::class, 'add'])->middleware(['auth:sanctum', 'can:add-post']);

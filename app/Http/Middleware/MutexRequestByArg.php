@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Exceptions\ErrorCodeException;
+
 use Closure;
 use Illuminate\Contracts\Cache\LockTimeoutException;
 use Illuminate\Http\Request;
@@ -26,15 +26,14 @@ class MutexRequestByArg
         $lockName = "mutexRequest:$argName:$val";
         $lock = Cache::lock($lockName, $lockSeconds);
 
+        $isLocked = false;
         try {
-            try {
-                $lock->block($waitSeconds);
-                return $next($request);
-            } finally {
-                $lock->release();
-            }
+            $isLocked = (bool) $lock->block($waitSeconds);
+            return $next($request);
         } catch (LockTimeoutException $exception) {
-            throw new ErrorCodeException(502, "系统繁忙，请稍后再试");
+            throw new \RuntimeException("获取锁超时", 502);
+        } finally {
+            $isLocked && $lock->release();
         }
     }
 }
