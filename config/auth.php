@@ -53,6 +53,12 @@ return [
             'driver' => 'jwt',
             'provider' => 'jwt-users',
         ],
+
+        'gw-auth' => [
+            'driver' => 'gw',
+            'header' => 'Gw-Auth-Info',
+            'user-class' => Oh86\GW\Auth\Guard\User::class,
+        ]
     ],
 
     /*

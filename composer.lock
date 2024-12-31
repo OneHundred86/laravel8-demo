@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4ea8970fa942ff87335d222fa93d48c",
+    "content-hash": "cf587f9ef0a85070e51cbff198789409",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3037,12 +3037,54 @@
             "time": "2024-12-30T11:07:19+00:00"
         },
         {
+            "name": "oh86/laravel-gw-auth",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/data/codes/php/packages/laravel-gw-auth",
+                "reference": "fa15df288c459f33d04347d71dfa93eaf89ecf5f"
+            },
+            "require": {
+                "oh86/laravel-http-tools": "*",
+                "oh86/sm": "^1.4"
+            },
+            "require-dev": {
+                "laravel/framework": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Oh86\\GW\\Auth\\GatewayAuthServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Oh86\\GW\\Auth\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chengj",
+                    "email": "chen.gj@qq.com"
+                }
+            ],
+            "description": "auth tools for oh86/laravel-gw",
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "oh86/laravel-http-tools",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-http-tools",
-                "reference": "c98edc7440e22037d063174a479f0c4072d6856a"
+                "reference": "f9bfcb5c01a96730cee2c0cff1cd15862cfc52ea"
             },
             "require-dev": {
                 "laravel/framework": "*"
@@ -9323,7 +9365,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "oh86/laravel-yashan": 20,
         "thiagobrauer/laravel-kafka": 20
     },
     "prefer-stable": true,
