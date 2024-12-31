@@ -18,6 +18,7 @@
         "laravel/sanctum": "^2.15",
         "laravel/tinker": "^2.5",
         "mongodb/laravel-mongodb": "^3.8",
+        "oh86/laravel-http-tools": "dev-main",
         "oh86/laravel-yashan": "^1.0@dev",
         "oh86/sm": "*",
         "oh86/sm_cryptor": "*",
@@ -74,14 +75,11 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": {
-        "oh86/laravel-yashan": {
+    "repositories": [
+        {
             "type": "path",
-            "url": "/data/codes/php/laravel-yashan"
-        },
-        "oh86/laravel-gw": {
-            "type": "path",
-            "url": "/data/codes/php/laravel-gw"
+            "url": "/data/codes/php/packages/*",
+            "note": "本地路径仓库，用于测试本地组件库，可以配置多个。优先级：先packagist.org，然后从上到下使用repositories的配置。"
         }
-    }
+    ]
 }
