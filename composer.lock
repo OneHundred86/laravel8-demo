@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf587f9ef0a85070e51cbff198789409",
+    "content-hash": "57872df258d519796c6a081e0f6620c8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3042,11 +3042,11 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-gw-auth",
-                "reference": "fa15df288c459f33d04347d71dfa93eaf89ecf5f"
+                "reference": "f9b570050797f34e7fbec98e726630f1bac73746"
             },
             "require": {
                 "oh86/laravel-http-tools": "*",
-                "oh86/sm": "^1.4"
+                "oh86/sm": "*"
             },
             "require-dev": {
                 "laravel/framework": "*"

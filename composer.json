@@ -21,7 +21,6 @@
         "oh86/laravel-gw-auth": "*",
         "oh86/laravel-http-tools": "*",
         "oh86/laravel-yashan": "*",
-        "oh86/sm": "*",
         "oh86/sm_cryptor": "*",
         "oh86/sqllog": "^1.2",
         "thiagobrauer/laravel-kafka": "dev-main",
@@ -79,8 +78,8 @@
     "repositories": [
         {
             "type": "path",
-            "url": "/data/codes/php/packages/*",
-            "note": "本地路径仓库，用于测试本地组件库，可以配置多个。优先级：先packagist.org，然后从上到下使用repositories的配置。"
+            "url": "/data/codes/php/packages/laravel-*",
+            "note": "本地路径仓库，用于测试本地组件库，可以配置多个。优先级：从上到下使用repositories的配置，如果找不到再从packagist.org下载。"
         }
     ]
 }
