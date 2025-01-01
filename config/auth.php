@@ -46,9 +46,6 @@ return [
             "driver" => "private-api-driver",
         ],
 
-        'jwt-guest' => [
-            'driver' => 'jwt-guest-guard',
-        ],
         'jwt-auth' => [
             'driver' => 'jwt',
             'provider' => 'jwt-users',
@@ -56,7 +53,7 @@ return [
 
         'gw-auth' => [
             'driver' => 'gw',
-            'header' => 'Gw-Auth-Info',
+            'header' => 'GW-Auth-Info',
             'user-class' => Oh86\GW\Auth\Guard\User::class,
         ]
     ],

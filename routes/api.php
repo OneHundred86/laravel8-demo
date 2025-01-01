@@ -39,10 +39,10 @@ Route::post('post/add', [PostController::class, 'add'])->middleware(['auth:sanct
 
 // gw auth test
 Route::post('gw/test/request/body', [GatewayTestController::class, 'showRequest'])->middleware([
-    CheckPrivateRequest::class . ':admin',
+    CheckPrivateRequest::class . ':gw',
 ]);
 Route::post('gw/test/auth/request/body', [GatewayTestController::class, 'showRequest'])
     ->middleware([
-        CheckPrivateRequest::class . ':admin',
+        CheckPrivateRequest::class . ':gw',
         'auth:gw-auth',
     ]);

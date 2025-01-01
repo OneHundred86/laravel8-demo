@@ -15,12 +15,5 @@ class JwtAuthTestServiceProvider extends \Illuminate\Support\ServiceProvider
 
     public function register()
     {
-        Auth::extend('jwt-guest-guard', function ($app, $name, array $config) {
-            return new JWTGuard(
-                $app['tymon.jwt'],
-                new GuestUserProvider(),
-                $app['request'],
-            );
-        });
     }
 }
