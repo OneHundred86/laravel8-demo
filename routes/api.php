@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Oh86\Test\Controllers\PrivateApiController;
 use Oh86\Test\Middlewares\PrivateApiAuthticate;
 use Oh86\GW\Auth\Middleware\CheckPrivateRequest;
+use Oh86\GW\Auth\Middleware\CheckPermissionCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,4 +46,5 @@ Route::post('gw/test/auth/request/body', [GatewayTestController::class, 'showReq
     ->middleware([
         CheckPrivateRequest::class . ':gw',
         'auth:gw-auth',
+        CheckPermissionCode::class . ':test1',
     ]);
