@@ -1,12 +1,10 @@
 <?php
 
 return [
-    'private-requests' => [
-        'gw' => [
-            'app' => env('GW_AUTH_PRIVATE_APP', 'app1'),
-            'ticket' => env('GW_AUTH_PRIVATE_TICKET', 'ticket123'),
-            'ignore-check' => env('APP_DEBUG', false),  // 是否忽略校验
-        ],
+    'private-request' => [
+        'app' => env('GW_AUTH_PRIVATE_APP', 'app1'),
+        'ticket' => env('GW_AUTH_PRIVATE_TICKET', 'ticket123'),
+        'ignore-check' => env('APP_DEBUG', false),  // 是否忽略校验
     ],
 
     'permission-codes-header' => env('GW_AUTH_PERMISSION_CODES_HEADER', 'GW-Permission-Codes'),

@@ -7,14 +7,14 @@ use GuzzleHttp\Middleware;
 use Oh86\GW\ProxyMiddlewares\AbstractMiddleware;
 use Psr\Http\Message\RequestInterface;
 
-class RequestWithUserInfo extends AbstractMiddleware
+class RequestWithoutUserInfo extends AbstractMiddleware
 {
     public function __invoke(...$args)
     {
         return Middleware::mapRequest(function (RequestInterface $request) {
             $user = Auth::user();
 
-            return $request->withHeader("GW-Auth-Info", $user->getModel()->toJson());
+            return $request->withoutHeader("GW-Auth-Info");
         });
     }
 }

@@ -40,11 +40,11 @@ Route::post('post/add', [PostController::class, 'add'])->middleware(['auth:sanct
 
 // gw auth test
 Route::post('gw/test/request/body', [GatewayTestController::class, 'showRequest'])->middleware([
-    CheckPrivateRequest::class . ':gw',
+    CheckPrivateRequest::class,
 ]);
 Route::post('gw/test/auth/request/body', [GatewayTestController::class, 'showRequest'])
     ->middleware([
-        CheckPrivateRequest::class . ':gw',
+        CheckPrivateRequest::class,
         'auth:gw-auth',
         CheckPermissionCode::class . ':test1',
     ]);
