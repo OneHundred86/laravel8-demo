@@ -54,7 +54,7 @@ return [
         'gw-auth' => [
             'driver' => 'gw',
             'header' => 'GW-Auth-Info',
-            'user-class' => Oh86\GW\Auth\Guard\User::class,
+            'user-class' => Oh86\Test\Access\User::class,
         ]
     ],
 

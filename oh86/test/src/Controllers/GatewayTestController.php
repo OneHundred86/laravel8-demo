@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Oh86\Test\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Oh86\GW\Auth\Facades\PermissionCode;
 
-class GatewayTestController extends Controller
+class GatewayTestController
 {
     public function showRequest(Request $request)
     {
@@ -29,8 +28,7 @@ class GatewayTestController extends Controller
         }
 
         $user = Auth::user();
-        $permissionCodes = PermissionCode::getCodes();
 
-        return compact("all", "allFiles0", "allFiles", "headers", "user", "permissionCodes");
+        return compact("all", "allFiles0", "allFiles", "headers", "user");
     }
 }
