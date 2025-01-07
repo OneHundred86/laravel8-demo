@@ -3042,7 +3042,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-gw",
-                "reference": "b07661fdd0185615cdb4449f5327efa3d6845cc3"
+                "reference": "246c76d214479c63363101d03ee585030435b471"
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.0 || ^8.0",
@@ -3086,21 +3086,24 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-gw-auth",
-                "reference": "d0fc6b9279c5479ed16bd780ee44142ad0cc6f69"
+                "reference": "3ba0047ae895d25d1efd8cda6e820d79134cd8d0"
             },
             "require": {
                 "oh86/laravel-http-tools": "*",
                 "oh86/sm": "*"
             },
             "require-dev": {
-                "laravel/framework": "*"
+                "laravel/framework": "^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
                         "Oh86\\GW\\Auth\\GatewayAuthServiceProvider"
-                    ]
+                    ],
+                    "aliases": {
+                        "ServiceDiscovery": "Oh86\\GW\\Auth\\Facades\\ServiceDiscovery"
+                    }
                 }
             },
             "autoload": {
@@ -3128,7 +3131,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-http-tools",
-                "reference": "f9bfcb5c01a96730cee2c0cff1cd15862cfc52ea"
+                "reference": "0ea0ef828abb95b721c37e3bc80b614dc4900382"
             },
             "require-dev": {
                 "laravel/framework": "*"

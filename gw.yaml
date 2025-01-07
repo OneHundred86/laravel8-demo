@@ -5,7 +5,7 @@ routes:
     access_log_channel:   # 缺省使用log_channel配置
     error_log_channel:    # 缺省使用log_channel配置
     route: /app1/api/{path}     # 必须，{path}为固定变量
-    proxy_pass: http://localhost:8000/{path} # 必须，{path}为route配置的变量
+    proxy_pass: http://localhost:8001/{path} # 必须，{path}为route配置的变量
     proxy_middelewares: # 代理中间件
       - Oh86\GW\ProxyMiddlewares\AllowRequestHeaders:accept
       - Oh86\GW\ProxyMiddlewares\AddRequestHeader:h1,v1
