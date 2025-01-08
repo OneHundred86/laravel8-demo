@@ -5,7 +5,7 @@ routes:
     access_log_channel:   # 缺省使用log_channel配置
     error_log_channel:    # 缺省使用log_channel配置
     route: /app1/api/{path}     # 必须，{path}为固定变量
-    proxy_pass: http://localhost:8001/{path} # 必须，{path}为route配置的变量
+    proxy_pass: http://localhost:8000/{path} # 必须，{path}为route配置的变量
     proxy_middelewares: # 代理中间件
       - Oh86\GW\ProxyMiddlewares\AllowRequestHeaders:accept
       - Oh86\GW\ProxyMiddlewares\AddRequestHeader:h1,v1
@@ -20,11 +20,11 @@ routes:
   
   app1-auth-api:
     name: 应用1-需登录
-    route: /app1/auth/api/{path}     # 必须，{path}为固定变量
-    middlewares:  # laravel的中间件
+    route: /app1/auth/api/{path}
+    middlewares:
       - auth:jwt-auth
-    proxy_pass: http://localhost:8000/{path} # 必须，{path}为route配置的变量
-    proxy_middelewares: # 代理中间件
+    proxy_pass: http://localhost:8000/{path}
+    proxy_middelewares:
       - Oh86\GW\ProxyMiddlewares\AllowRequestHeaders:accept
       - Oh86\GW\ProxyMiddlewares\AddRequestHeader:h1,v1
       - Oh86\GW\ProxyMiddlewares\SetXRealIPHeader
@@ -32,25 +32,32 @@ routes:
       - Oh86\GW\ProxyMiddlewares\PrivateRequest:app1,ticket1
       - Oh86\Test\Gateway\ProxyMiddlewares\RequestWithUserInfo
     proxy_timeout: 10
-    circuit_breaker:  # {error_period}时间内错误超过{error_threshold}次，触发熔断，熔断时长为{break_period}
+    circuit_breaker:
       error_period: 60
       error_threshold: 5
       break_period: 300
 
+  app1-dev:
+    name: 应用1-可用于dev服务注册和发现（此时`baseUrl`为`proxy_pass`的配置）
+    route: /app1/a8b29cf68b109075902486e0698139be  # 配置一个不存在的不容易发现的目录
+    proxy_pass: http://localhost:8000/test
+    proxy_middelewares:
+      - Oh86\GW\ProxyMiddlewares\PrivateRequest:app1,ticket1
+
   gw-openapi:
     name: 网关openapi
     route: /gw/openapi/app1/{path}
-    middlewares:  # laravel的中间件
+    middlewares:
       # - private-api
-    proxy_pass: http://localhost:8000/gw/openapi/{path} # 必须，{path}为route配置的变量
-    proxy_middelewares: # 代理中间件
+    proxy_pass: http://localhost:8000/gw/openapi/{path}
+    proxy_middelewares:
       - Oh86\GW\ProxyMiddlewares\AllowRequestHeaders:accept
       - Oh86\GW\ProxyMiddlewares\AddRequestHeader:h1,v1
       - Oh86\GW\ProxyMiddlewares\SetXRealIPHeader
       - Oh86\GW\ProxyMiddlewares\SetXForwardedForHeader
       - Oh86\GW\ProxyMiddlewares\PrivateRequest:app1,ticket1
     proxy_timeout: 10
-    circuit_breaker:  # {error_period}时间内错误超过{error_threshold}次，触发熔断，熔断时长为{break_period}
+    circuit_breaker:
       error_period: 60
       error_threshold: 5
       break_period: 300
