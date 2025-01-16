@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e39ec4f44b5baebad4afa35124706aff",
+    "content-hash": "4df2bc42f8f2a42ea7efdad3b5de0e19",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2728,12 +2728,12 @@
             "version": "2.72.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/briannesbitt/Carbon.git",
+                "url": "https://github.com/CarbonPHP/carbon.git",
                 "reference": "1e9d50601e7035a4c61441a208cb5bed73e108c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1e9d50601e7035a4c61441a208cb5bed73e108c5",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/1e9d50601e7035a4c61441a208cb5bed73e108c5",
                 "reference": "1e9d50601e7035a4c61441a208cb5bed73e108c5",
                 "shasum": ""
             },
@@ -3042,16 +3042,17 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-gw",
-                "reference": "246c76d214479c63363101d03ee585030435b471"
+                "reference": "05b6f3e529b60f79110eca23781b225753280f6b"
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.0 || ^8.0",
+                "oh86/laravel-http-tools": "*",
                 "oh86/sm": "*",
                 "php": "^7.4 || ^8.0",
                 "symfony/yaml": "^5.2 || ^6.0"
             },
             "require-dev": {
-                "laravel/framework": "^5.5 || ^6.0||^7.0||^8.0||^9.0||^10.0||^11.0"
+                "laravel/framework": "^7.0||^8.0||^9.0||^10.0||^11.0"
             },
             "type": "library",
             "extra": {
@@ -3086,7 +3087,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-gw-auth",
-                "reference": "3ba0047ae895d25d1efd8cda6e820d79134cd8d0"
+                "reference": "628320df18c656469a09d496e37183442ec202a8"
             },
             "require": {
                 "oh86/laravel-http-tools": "*",
@@ -3131,7 +3132,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-http-tools",
-                "reference": "0ea0ef828abb95b721c37e3bc80b614dc4900382"
+                "reference": "63460f811030eb555eccc337ad7ecca92049337c"
             },
             "require-dev": {
                 "laravel/framework": "*"
@@ -3159,6 +3160,47 @@
                 }
             ],
             "description": "some http tools for laravel framework",
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "oh86/laravel-uploadfile",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/data/codes/php/packages/laravel-uploadfile",
+                "reference": "35e224a9bcc8c0d02f014a59195edf23ebe295dc"
+            },
+            "require": {
+                "laravel/framework": "*",
+                "oh86/laravel-http-tools": "*",
+                "oh86/sm_cryptor": "*",
+                "php": "^7.4 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Oh86\\UploadFile\\UploadFileServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Oh86\\UploadFile\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chengj",
+                    "email": "chen.gj@qq.com"
+                }
+            ],
+            "description": "upload/download/view file with laravel framework",
             "transport-options": {
                 "relative": false
             }
