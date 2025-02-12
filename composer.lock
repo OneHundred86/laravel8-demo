@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4df2bc42f8f2a42ea7efdad3b5de0e19",
+    "content-hash": "50ca592347409f4073a00d8e207e4c5c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1812,22 +1812,22 @@
         },
         {
             "name": "laravel/tinker",
-            "version": "v2.10.0",
+            "version": "v2.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/tinker.git",
-                "reference": "ba4d51eb56de7711b3a37d63aa0643e99a339ae5"
+                "reference": "22177cc71807d38f2810c6204d8f7183d88a57d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/tinker/zipball/ba4d51eb56de7711b3a37d63aa0643e99a339ae5",
-                "reference": "ba4d51eb56de7711b3a37d63aa0643e99a339ae5",
+                "url": "https://api.github.com/repos/laravel/tinker/zipball/22177cc71807d38f2810c6204d8f7183d88a57d3",
+                "reference": "22177cc71807d38f2810c6204d8f7183d88a57d3",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
-                "illuminate/contracts": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
-                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/console": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/contracts": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0|^12.0",
                 "php": "^7.2.5|^8.0",
                 "psy/psysh": "^0.11.1|^0.12.0",
                 "symfony/var-dumper": "^4.3.4|^5.0|^6.0|^7.0"
@@ -1835,10 +1835,10 @@
             "require-dev": {
                 "mockery/mockery": "~1.3.3|^1.4.2",
                 "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^8.5.8|^9.3.3"
+                "phpunit/phpunit": "^8.5.8|^9.3.3|^10.0"
             },
             "suggest": {
-                "illuminate/database": "The Illuminate Database package (^6.0|^7.0|^8.0|^9.0|^10.0|^11.0)."
+                "illuminate/database": "The Illuminate Database package (^6.0|^7.0|^8.0|^9.0|^10.0|^11.0|^12.0)."
             },
             "type": "library",
             "extra": {
@@ -1872,9 +1872,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/tinker/issues",
-                "source": "https://github.com/laravel/tinker/tree/v2.10.0"
+                "source": "https://github.com/laravel/tinker/tree/v2.10.1"
             },
-            "time": "2024-09-23T13:32:56+00:00"
+            "time": "2025-01-27T14:24:01+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -3087,7 +3087,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-gw-auth",
-                "reference": "628320df18c656469a09d496e37183442ec202a8"
+                "reference": "37c95f5f543710d00a89451038dfbe041d60a44f"
             },
             "require": {
                 "oh86/laravel-http-tools": "*",
@@ -3132,7 +3132,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-http-tools",
-                "reference": "63460f811030eb555eccc337ad7ecca92049337c"
+                "reference": "ac70f1d113a69dbf6df23d487b102cfed62c9fb1"
             },
             "require-dev": {
                 "laravel/framework": "*"
@@ -3170,7 +3170,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-uploadfile",
-                "reference": "35e224a9bcc8c0d02f014a59195edf23ebe295dc"
+                "reference": "3785302a0d010506728587339c0a254148264c22"
             },
             "require": {
                 "laravel/framework": "*",
@@ -3294,24 +3294,18 @@
         },
         {
             "name": "oh86/sm_cryptor",
-            "version": "v1.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/OneHundred86/sm_cryptor.git",
-                "reference": "086071e8745c52076ee10e2eb5640501700b2628"
-            },
+            "version": "dev-main",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/OneHundred86/sm_cryptor/zipball/086071e8745c52076ee10e2eb5640501700b2628",
-                "reference": "086071e8745c52076ee10e2eb5640501700b2628",
-                "shasum": ""
+                "type": "path",
+                "url": "/data/codes/php/packages/sm_cryptor",
+                "reference": "9ceee5a2673aaf3b27a6a7f30fff9263106db939"
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.0 || ^7.0 || ^8.0",
                 "oh86/sm": "^1.3",
                 "oh86/telecom_cryptor": "^1.1",
                 "oh86/unicom_cryptor": "^1.0",
-                "php": "^7.3||^8.0"
+                "php": "^7.4||^8.0"
             },
             "require-dev": {
                 "laravel/framework": "^5.5||^6.0||^7.0||^8.0||^9.0||^10.0"
@@ -3319,12 +3313,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "aliases": {
-                        "SmCryptor": "Oh86\\SmCryptor\\Facades\\Cryptor"
-                    },
                     "providers": [
                         "Oh86\\SmCryptor\\SmCryptorServiceProvider"
-                    ]
+                    ],
+                    "aliases": {
+                        "SmCryptor": "Oh86\\SmCryptor\\Facades\\Cryptor"
+                    }
                 }
             },
             "autoload": {
@@ -3332,7 +3326,6 @@
                     "Oh86\\SmCryptor\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3343,11 +3336,9 @@
                 }
             ],
             "description": "国密加解密",
-            "support": {
-                "issues": "https://github.com/OneHundred86/sm_cryptor/issues",
-                "source": "https://github.com/OneHundred86/sm_cryptor/tree/v1.7"
-            },
-            "time": "2024-11-04T08:32:44+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "oh86/sqllog",
@@ -7562,16 +7553,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.16.0",
+            "version": "2.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "befcdc0e5dce67252aa6322d82424be928214fa2"
+                "reference": "075bc0c26631110584175de6523ab3f1652eb28e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/befcdc0e5dce67252aa6322d82424be928214fa2",
-                "reference": "befcdc0e5dce67252aa6322d82424be928214fa2",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/075bc0c26631110584175de6523ab3f1652eb28e",
+                "reference": "075bc0c26631110584175de6523ab3f1652eb28e",
                 "shasum": ""
             },
             "require": {
@@ -7621,7 +7612,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.16.0"
+                "source": "https://github.com/filp/whoops/tree/2.17.0"
             },
             "funding": [
                 {
@@ -7629,7 +7620,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-25T12:00:00+00:00"
+            "time": "2025-01-25T12:00:00+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -9529,6 +9520,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "oh86/laravel-uploadfile": 20,
         "thiagobrauer/laravel-kafka": 20
     },
     "prefer-stable": true,
