@@ -21,6 +21,7 @@
         "oh86/laravel-gw": "*",
         "oh86/laravel-gw-auth": "*",
         "oh86/laravel-http-tools": "*",
+        "oh86/laravel-mysql-lb": "^1.0",
         "oh86/laravel-uploadfile": "dev-main",
         "oh86/laravel-yashan": "*",
         "oh86/sm_cryptor": "*",

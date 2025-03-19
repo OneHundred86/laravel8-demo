@@ -96,9 +96,9 @@ return [
             'prefix' => '',
         ],
 
-        'mysql-lb-test' => [
+        'mysql-lb' => [
             'driver' => 'mysql-lb',
-            'servers' => env('DB_SERVERS', '127.0.0.1:3305,127.0.0.1:3307,127.0.0.1:3308'),
+            'servers' => env('DB_SERVERS', '127.0.0.1:3306'),
             'servers_weight' => env('DB_SERVERS_WEIGHT', ''),
 
             'database' => env('DB_DATABASE', 'forge'),

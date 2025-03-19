@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50ca592347409f4073a00d8e207e4c5c",
+    "content-hash": "9968e0c6b3f86ac549da6cfdba970eb5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3042,7 +3042,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-gw",
-                "reference": "05b6f3e529b60f79110eca23781b225753280f6b"
+                "reference": "c2fd157e9672cefbc0ba054ac136a554df7d9c4d"
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.0 || ^8.0",
@@ -3132,7 +3132,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-http-tools",
-                "reference": "ac70f1d113a69dbf6df23d487b102cfed62c9fb1"
+                "reference": "2b9a1653e6c212e2a10427a2a114358e9b6e28fd"
             },
             "require-dev": {
                 "laravel/framework": "*"
@@ -3165,12 +3165,50 @@
             }
         },
         {
+            "name": "oh86/laravel-mysql-lb",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "/data/codes/php/packages/laravel-mysql-lb",
+                "reference": "756bec3c14dce4909075fc5b5309496fe4e96d61"
+            },
+            "require-dev": {
+                "laravel/framework": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Oh86\\MySqlLB\\MysqlLBServiceProvoder"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Oh86\\MySqlLB\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chengj",
+                    "email": "chen.gj@qq.com"
+                }
+            ],
+            "description": "Laravel database driver for mysql cluster",
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "oh86/laravel-uploadfile",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-uploadfile",
-                "reference": "3785302a0d010506728587339c0a254148264c22"
+                "reference": "351c3dd75e4c32a276c8983f34a41554a1a49196"
             },
             "require": {
                 "laravel/framework": "*",
@@ -3298,7 +3336,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/sm_cryptor",
-                "reference": "9ceee5a2673aaf3b27a6a7f30fff9263106db939"
+                "reference": "897d2cdfcc5e230e071245f19014b69366b3c0a8"
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.0 || ^7.0 || ^8.0",

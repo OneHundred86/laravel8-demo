@@ -184,7 +184,6 @@ return [
         \Oh86\Test\SmCryptorTestProvider::class,
         \Oh86\Test\TestIoCServiceProvider::class,
         App\JwtAuthTest\JwtAuthTestServiceProvider::class,
-        Oh86\Test\MysqlLBServiceProvoder::class,
     ],
 
     /*
