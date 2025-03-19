@@ -13,7 +13,7 @@ class MysqlLBServiceProvoder extends ServiceProvider
         $this->app->resolving('db', function (DatabaseManager $db) {
             $db->extend('mysql-lb', function ($config, $name) {
                 return new MySqlConnection(
-                    (new MysqlLBConnector())->tryConnect($config),
+                    (new MysqlLBConnector())->lbConnect($config),
                     $config['database'],
                     $config['prefix'],
                     $config

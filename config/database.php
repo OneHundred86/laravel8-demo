@@ -98,8 +98,9 @@ return [
 
         'mysql-lb-test' => [
             'driver' => 'mysql-lb',
-            'hosts' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
+            'servers' => env('DB_SERVERS', '127.0.0.1:3305,127.0.0.1:3307,127.0.0.1:3308'),
+            'servers_weight' => env('DB_SERVERS_WEIGHT', ''),
+
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
