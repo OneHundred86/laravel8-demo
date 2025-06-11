@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "317471e1877b65a770468451ff59d519",
+    "content-hash": "f5bd1e011eb1732f386e961d010174a3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3155,6 +3155,49 @@
                 }
             ],
             "description": "captcha for app with laravel framework",
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "oh86/laravel-captcha-sms",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/data/codes/php/packages/laravel-captcha-sms",
+                "reference": "47b4c5563abbd87ee7c72a408be9d66c23b4b0bf"
+            },
+            "require": {
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^7.0||^8.0||^9.0||^10.0||^11.0",
+                "oh86/laravel-captcha": "*",
+                "tencentcloud/sms": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Oh86\\Captcha\\SMS\\SMSCaptchaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Oh86\\Captcha\\SMS\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chengj",
+                    "email": "chen.gj@qq.com"
+                }
+            ],
+            "description": "sms captcha for oh86/laravel-captcha",
             "transport-options": {
                 "relative": false
             }
@@ -7184,6 +7227,49 @@
             "time": "2025-06-04T20:35:42+00:00"
         },
         {
+            "name": "tencentcloud/sms",
+            "version": "3.0.1394",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tencentcloud-sdk-php/sms.git",
+                "reference": "c760ee343c24c19b58b46862f79858ab7fd9f98c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tencentcloud-sdk-php/sms/zipball/c760ee343c24c19b58b46862f79858ab7fd9f98c",
+                "reference": "c760ee343c24c19b58b46862f79858ab7fd9f98c",
+                "shasum": ""
+            },
+            "require": {
+                "tencentcloud/common": "3.0.1394"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TencentCloud\\": "./src/TencentCloud"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "tencentcloudapi",
+                    "email": "tencentcloudapi@tencent.com",
+                    "homepage": "https://github.com/tencentcloud-sdk-php/sms",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TencentCloudApi php sdk sms",
+            "homepage": "https://github.com/tencentcloud-sdk-php/sms",
+            "support": {
+                "issues": "https://github.com/tencentcloud-sdk-php/sms/issues",
+                "source": "https://github.com/tencentcloud-sdk-php/sms/tree/3.0.1394"
+            },
+            "time": "2025-06-04T21:14:54+00:00"
+        },
+        {
             "name": "thiagobrauer/laravel-kafka",
             "version": "dev-main",
             "source": {
@@ -10046,6 +10132,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "oh86/laravel-captcha": 20,
+        "oh86/laravel-captcha-sms": 20,
         "oh86/laravel-captcha-tencentcloud": 20,
         "oh86/laravel-uploadfile": 20,
         "thiagobrauer/laravel-kafka": 20

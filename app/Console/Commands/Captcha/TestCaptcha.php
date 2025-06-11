@@ -40,7 +40,8 @@ class TestCaptcha extends Command
     {
         // $this->defaultDemo();
         // $this->imageDemo();
-        $this->tencentCloudDemo();
+        // $this->tencentCloudDemo();
+        $this->tencentCloudSmsDemo();
 
         return 0;
     }
@@ -69,6 +70,16 @@ class TestCaptcha extends Command
         // var_dump($capt);
 
         $result = Captcha::driver('tencentCloud')->verify(['ticket' => 'your_ticket_here', 'randStr' => 'your_rand_str_here', 'userIp' => 'your_user_ip_here']);
+        var_dump($result);
+    }
+
+    public function tencentCloudSmsDemo()
+    {
+        // $key = Captcha::driver('sms')->acquire(['phone' => '15014153877']);
+        $key = 'KKPBIqVfjHLPD6GHfsA0lLLQYKaTPF6T';
+        var_dump($key);
+
+        $result = Captcha::driver('sms')->verify(['key' => $key, 'phone' => '15014153877', 'otp' => '066611']);
         var_dump($result);
     }
 }

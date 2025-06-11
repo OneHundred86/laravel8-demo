@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.5",
         "mongodb/laravel-mongodb": "^3.8",
         "oh86/laravel-captcha": "dev-main",
+        "oh86/laravel-captcha-sms": "dev-main",
         "oh86/laravel-captcha-tencentcloud": "dev-main",
         "oh86/laravel-gw": "*",
         "oh86/laravel-gw-auth": "*",
@@ -28,6 +29,7 @@
         "oh86/laravel-yashan": "*",
         "oh86/sm_cryptor": "*",
         "oh86/sqllog": "^1.2",
+        "tencentcloud/sms": "^3.0",
         "thiagobrauer/laravel-kafka": "dev-main",
         "tymon/jwt-auth": "^1.0",
         "webklex/laravel-imap": "*"
