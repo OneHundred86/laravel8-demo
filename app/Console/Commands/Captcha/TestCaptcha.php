@@ -39,9 +39,9 @@ class TestCaptcha extends Command
     public function handle()
     {
         // $this->defaultDemo();
-        // $this->imageDemo();
+        $this->imageDemo();
         // $this->tencentCloudDemo();
-        $this->tencentCloudSmsDemo();
+        // $this->tencentCloudSmsDemo();
 
         return 0;
     }

@@ -3123,7 +3123,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-captcha",
-                "reference": "04ac1c042f8c7654d14c17ac75d762bda693b8d2"
+                "reference": "244d8aa84f74d2725aa285218cc7aedc2cf6daff"
             },
             "require": {
                 "mews/captcha": "^3.3",
@@ -3341,7 +3341,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-hash-sm",
-                "reference": "b3bb8aa29d0f3fcd1cdd4da19c69c35509acbe01"
+                "reference": "f9cf4458afa03985c3ceaf80b36e138ae6c4e6b6"
             },
             "require": {
                 "oh86/sm_cryptor": "*",
@@ -8205,16 +8205,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.18.1",
+            "version": "2.18.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "8fcc6a862f2e7b94eb4221fd0819ddba3d30ab26"
+                "reference": "89dabca1490bc77dbcab41c2b20968c7e44bf7c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/8fcc6a862f2e7b94eb4221fd0819ddba3d30ab26",
-                "reference": "8fcc6a862f2e7b94eb4221fd0819ddba3d30ab26",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/89dabca1490bc77dbcab41c2b20968c7e44bf7c3",
+                "reference": "89dabca1490bc77dbcab41c2b20968c7e44bf7c3",
                 "shasum": ""
             },
             "require": {
@@ -8264,7 +8264,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.18.1"
+                "source": "https://github.com/filp/whoops/tree/2.18.2"
             },
             "funding": [
                 {
@@ -8272,7 +8272,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-06-03T18:56:14+00:00"
+            "time": "2025-06-11T20:42:19+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -10183,6 +10183,7 @@
         "oh86/laravel-captcha": 20,
         "oh86/laravel-captcha-sms": 20,
         "oh86/laravel-captcha-tencentcloud": 20,
+        "oh86/laravel-hash-sm": 20,
         "oh86/laravel-uploadfile": 20,
         "thiagobrauer/laravel-kafka": 20
     },
