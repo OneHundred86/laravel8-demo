@@ -23,6 +23,7 @@
         "oh86/laravel-captcha-tencentcloud": "dev-main",
         "oh86/laravel-gw": "*",
         "oh86/laravel-gw-auth": "*",
+        "oh86/laravel-hash-sm": "dev-main",
         "oh86/laravel-http-tools": "*",
         "oh86/laravel-mysql-lb": "*",
         "oh86/laravel-uploadfile": "dev-main",

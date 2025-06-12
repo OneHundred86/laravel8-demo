@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5bd1e011eb1732f386e961d010174a3",
+    "content-hash": "f213df3d193faa2adaa9b942e634d883",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3165,7 +3165,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-captcha-sms",
-                "reference": "47b4c5563abbd87ee7c72a408be9d66c23b4b0bf"
+                "reference": "53ed6c9c23b943a24e389d1303f512589ffff53c"
             },
             "require": {
                 "php": "^7.4 || ^8.0"
@@ -3208,7 +3208,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-captcha-tencentcloud",
-                "reference": "2cbebee0afed58eb118542441e405ba95a93558f"
+                "reference": "59fae6b7a8e892122b39548d1aabaee2f4631301"
             },
             "require": {
                 "php": "^7.4 || ^8.0",
@@ -3331,6 +3331,55 @@
                 }
             ],
             "description": "auth tools for oh86/laravel-gw",
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "oh86/laravel-hash-sm",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/data/codes/php/packages/laravel-hash-sm",
+                "reference": "b3bb8aa29d0f3fcd1cdd4da19c69c35509acbe01"
+            },
+            "require": {
+                "oh86/sm_cryptor": "*",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^7.0||^8.0||^9.0||^10.0||^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Oh86\\Hash\\HashServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Oh86\\Hash\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chengj",
+                    "email": "chen.gj@qq.com"
+                }
+            ],
+            "description": "国密哈希 for Laravel",
+            "keywords": [
+                "hash",
+                "hmac",
+                "laravel",
+                "sm3",
+                "国密"
+            ],
             "transport-options": {
                 "relative": false
             }

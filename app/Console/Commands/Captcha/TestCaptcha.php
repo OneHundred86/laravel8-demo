@@ -76,10 +76,10 @@ class TestCaptcha extends Command
     public function tencentCloudSmsDemo()
     {
         // $key = Captcha::driver('sms')->acquire(['phone' => '15014153877']);
-        $key = 'KKPBIqVfjHLPD6GHfsA0lLLQYKaTPF6T';
+        $key = 'pf7dL5HrpHZWgvlwXO30jno7ASCRcos1';
         var_dump($key);
 
-        $result = Captcha::driver('sms')->verify(['key' => $key, 'phone' => '15014153877', 'otp' => '066611']);
+        $result = Captcha::driver('sms')->verify(['key' => $key, 'value' => '671179']);
         var_dump($result);
     }
 }
