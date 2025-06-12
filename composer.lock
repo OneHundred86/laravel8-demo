@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f213df3d193faa2adaa9b942e634d883",
+    "content-hash": "e308ad67635116dd665301843ae3feb6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3123,7 +3123,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-captcha",
-                "reference": "244d8aa84f74d2725aa285218cc7aedc2cf6daff"
+                "reference": "9ce692fd4e6ea284e80dacf4faef44a0707dac83"
             },
             "require": {
                 "mews/captcha": "^3.3",
@@ -3168,12 +3168,12 @@
                 "reference": "53ed6c9c23b943a24e389d1303f512589ffff53c"
             },
             "require": {
+                "oh86/laravel-sms": "*",
                 "php": "^7.4 || ^8.0"
             },
             "require-dev": {
                 "laravel/framework": "^7.0||^8.0||^9.0||^10.0||^11.0",
-                "oh86/laravel-captcha": "*",
-                "tencentcloud/sms": "^3.0"
+                "oh86/laravel-captcha": "*"
             },
             "type": "library",
             "extra": {
@@ -3456,6 +3456,48 @@
                 }
             ],
             "description": "Laravel database driver for mysql cluster",
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "oh86/laravel-sms",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/data/codes/php/packages/laravel-sms",
+                "reference": "e57e6fb7ffae13a8d8fcaabbf87b74b80961c447"
+            },
+            "require": {
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^7.0||^8.0||^9.0||^10.0||^11.0",
+                "tencentcloud/sms": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Oh86\\SMS\\SMSServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Oh86\\SMS\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chengj",
+                    "email": "chen.gj@qq.com"
+                }
+            ],
+            "description": "sms for laravel",
             "transport-options": {
                 "relative": false
             }
@@ -10184,6 +10226,7 @@
         "oh86/laravel-captcha-sms": 20,
         "oh86/laravel-captcha-tencentcloud": 20,
         "oh86/laravel-hash-sm": 20,
+        "oh86/laravel-sms": 20,
         "oh86/laravel-uploadfile": 20,
         "thiagobrauer/laravel-kafka": 20
     },

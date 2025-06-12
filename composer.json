@@ -26,6 +26,7 @@
         "oh86/laravel-hash-sm": "dev-main",
         "oh86/laravel-http-tools": "*",
         "oh86/laravel-mysql-lb": "*",
+        "oh86/laravel-sms": "dev-main",
         "oh86/laravel-uploadfile": "dev-main",
         "oh86/laravel-yashan": "*",
         "oh86/sm_cryptor": "*",
