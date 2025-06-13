@@ -39,9 +39,9 @@ class TestCaptcha extends Command
     public function handle()
     {
         // $this->defaultDemo();
-        // $this->imageDemo();
+        $this->imageDemo();
         // $this->tencentCloudDemo();
-        $this->tencentCloudSmsDemo();
+        // $this->tencentCloudSmsDemo();
 
         return 0;
     }
@@ -57,10 +57,10 @@ class TestCaptcha extends Command
 
     public function imageDemo()
     {
-        $capt = Captcha::driver('image')->acquire();
+        $capt = Captcha::driver('mathImage')->acquire();
         var_dump($capt);
 
-        $result = Captcha::driver('image')->verify(['key' => $capt['key'], 'value' => '1234']);
+        $result = Captcha::driver('mathImage')->verify(['key' => $capt['key'], 'value' => '25']);
         var_dump($result);
     }
 

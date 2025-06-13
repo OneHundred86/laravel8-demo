@@ -38,7 +38,9 @@ class SMSDemo extends Command
      */
     public function handle()
     {
-        $this->tencentCloudDemo();
+        // $this->tencentCloudDemo();
+        $this->extendServiceDemo();
+        // $this->extendDriverDemo();
 
         return 0;
     }
@@ -46,8 +48,47 @@ class SMSDemo extends Command
     public function tencentCloudDemo()
     {
         // 腾讯云短信服务示例
-        SMS::send(['15014153877', '15014153878'], ['123456']);
-        // SMS::driver('tencentCloud')->send(['15014153877', '15014153878'], ['123456']);
-        // SMS::driver('tencentCloud')->driver('default')->send(['15014153877', '15014153878'], ['123456']);
+        // SMS::send(['15014153877', '15014153878'], ['123456']);
+
+        SMS::driver('tencentCloudApp')->send(['15014153877', '15014153878'], ['123456']);
+    }
+
+    public function extendServiceDemo()
+    {
+        app()->get(\Oh86\SMS\SMSManager::class)->extendService('serviceDemo', function ($config, $app): \Oh86\SMS\Services\SMSServiceInterface {
+            return new DemoSMSService($config);
+        });
+
+        SMS::driver('serviceDemoApp')->send(['15014153877', '15014153878'], ['123456']);
+    }
+
+    public function extendDriverDemo()
+    {
+        app()->get(\Oh86\SMS\SMSManager::class)->extend('driverDemo', function ($app): \Oh86\SMS\Services\SMSServiceInterface {
+            $config = $app->make('config')->get('sms.drivers.driverDemo');
+            return new DemoSMSService($config);
+        });
+
+        SMS::driver('driverDemo')->send(['15014153877', '15014153878'], ['123456']);
+    }
+}
+
+
+
+
+
+class DemoSMSService implements \Oh86\SMS\Services\SMSServiceInterface
+{
+    private array $config;
+
+    public function __construct($config)
+    {
+        $this->config = $config;
+    }
+
+
+    public function send($phones, $templateParams = [], $options = [])
+    {
+        var_dump(__METHOD__, $this->config, $phones, $templateParams, $options);
     }
 }

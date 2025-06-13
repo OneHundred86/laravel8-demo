@@ -3137,6 +3137,9 @@
                 "laravel": {
                     "providers": [
                         "Oh86\\Captcha\\CaptchaServiceProvider"
+                    ],
+                    "dont-discover": [
+                        "mews/captcha"
                     ]
                 }
             },
@@ -3165,7 +3168,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-captcha-sms",
-                "reference": "53ed6c9c23b943a24e389d1303f512589ffff53c"
+                "reference": "555032f5be5ee1c89c6c13f3e479bd4f46f0436e"
             },
             "require": {
                 "oh86/laravel-sms": "*",
