@@ -3123,7 +3123,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-captcha",
-                "reference": "9ce692fd4e6ea284e80dacf4faef44a0707dac83"
+                "reference": "83d6e5adfab9635441059df5acc372619958e215"
             },
             "require": {
                 "mews/captcha": "^3.3",
@@ -3469,7 +3469,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-sms",
-                "reference": "e57e6fb7ffae13a8d8fcaabbf87b74b80961c447"
+                "reference": "911ee601d376772ffe2ae0603b76a659af461a26"
             },
             "require": {
                 "php": "^7.4 || ^8.0"
