@@ -39,9 +39,9 @@ class TestCaptcha extends Command
     public function handle()
     {
         // $this->defaultDemo();
-        $this->imageDemo();
+        // $this->imageDemo();
         // $this->tencentCloudDemo();
-        // $this->smsDemo();
+        $this->smsDemo();
 
         return 0;
     }
@@ -75,12 +75,12 @@ class TestCaptcha extends Command
 
     public function smsDemo()
     {
-        // \Artisan::call(\App\Console\Commands\SMS\SMSDemo::class); // 先注入sms驱动
+        \Artisan::call(\App\Console\Commands\SMS\SMSDemo::class); // 先注入sms驱动
         $key = Captcha::driver('sms')->acquire(['phone' => '15014153877']);
         // $key = 'kCuO1kq2iB3jC3i3dsq5I5MSS1vnSel0';
         var_dump($key);
 
-        $result = Captcha::driver('sms')->verify(['key' => $key, 'value' => '000000']);
+        $result = Captcha::driver('sms')->verify(['key' => $key, 'value' => '000000', 'phone' => '1501415387']);
         var_dump($result);
     }
 }
