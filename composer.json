@@ -31,6 +31,7 @@
         "oh86/laravel-yashan": "*",
         "oh86/sm_cryptor": "*",
         "oh86/sqllog": "^1.2",
+        "predis/predis": "^3.2",
         "tencentcloud/sms": "^3.0",
         "thiagobrauer/laravel-kafka": "dev-main",
         "tymon/jwt-auth": "^1.0",
