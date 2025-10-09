@@ -83,6 +83,7 @@ return [
 ### 三、env配置
 
 ```dotenv
+# 按实际情况配置
 REDIS_SENTINEL_ENDPOINTS=tcp://127.0.0.1:26379,tcp://127.0.0.1:26380
 REDIS_SENTINEL_SERVICE=mymaster
 REDIS_CLIENT=predis
@@ -96,3 +97,46 @@ CACHE_REDIS_LOCK_CONNECTION=sentinel
 
 ```
 
+### 四、安装依赖
+
+```shell
+# 如果原本有该依赖，忽略即可
+
+composer require predis/predis
+
+```
+
+
+### 五、特殊处理
+
+##### 由于主办方运维没有分配 `role` 操作权限，所以需要修改部分 vendor 源代码。
+
+
+修改 `SentinelReplication.php` 代码（只有一个代码文件）：
+
+
+由于`predis`版本差异，该代码文件位置可能在如下路径：
+- `vendor/predis/predis/src/Connection/Aggregate/SentinelReplication.php`
+- `vendor/predis/predis/src/Connection/Replication/SentinelReplication.php`
+
+
+```php
+
+    protected function assertConnectionRole(NodeConnectionInterface $connection, $role)
+    {
+        #region 增加代码
+        return;
+        #endregion 增加代码
+
+        $role = strtolower($role);
+        $actualRole = $connection->executeCommand(RawCommand::create('ROLE'));
+
+        if ($actualRole instanceof Error) {
+            throw new ConnectionException($connection, $actualRole->getMessage());
+        }
+
+        if ($role !== $actualRole[0]) {
+            throw new RoleException($connection, "Expected $role but got $actualRole[0] [$connection]");
+        }
+    }
+```
