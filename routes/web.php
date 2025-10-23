@@ -39,3 +39,9 @@ Route::any("/middleware/order", function () {
     Log::debug("handler");
     return "ok";
 })->middleware([Middelware1::class, Middelware2::class]);
+
+// 测试相同路由覆盖
+// php artisan route:list --path=same/route
+// 实测：后注册的会覆盖前面的
+Route::get('same/route', [DebugController::class, 'echo']);
+Route::get('same/route', [DebugController::class, 'log']);
