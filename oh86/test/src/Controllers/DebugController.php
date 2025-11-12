@@ -114,4 +114,23 @@ class DebugController
 
         return "ok";
     }
+
+    public function setCookie(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'value' => 'required|string',
+        ]);
+
+        // 使用浏览器的 fetch，模拟ajax请求，返回的cookie也会设置进浏览器里面。
+        return response([
+            'code' => 0,
+            'message' => 'ok',
+            // 返回旧的cookie
+            'data' => $request->cookie(),
+        ])->withCookie(
+                // 设置新的cookie
+                cookie($request->name, $request->value)
+            );
+    }
 }

@@ -26,6 +26,7 @@ Route::any("debug/params/hash", [DebugController::class, "calcHash"])->withoutMi
 Route::any("debug/redirect", [DebugController::class, "redirect"]);
 Route::any("debug/echo", [DebugController::class, "echo"]);
 Route::any("debug/log", [DebugController::class, "log"]);
+Route::any('debug/cookie', [DebugController::class, 'setCookie']);
 
 // nginx直接显示：http://my.laravel8.local/README.pdf
 // php显示：http://my.laravel8.local/debug/file/view
