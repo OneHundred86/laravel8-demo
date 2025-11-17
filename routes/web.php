@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Log;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::any("debug/session", [DebugController::class, "session"]);
 Route::any("debug/login", [DebugController::class, "login"]);
 Route::any("debug/request/body", [DebugController::class, "requestBody"])->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
@@ -43,6 +42,17 @@ Route::any("/middleware/order", function () {
 
 // 测试相同路由覆盖
 // php artisan route:list --path=same/route
-// 实测：后注册的会覆盖前面的
+// 实测结论：后注册的会覆盖前面的
 Route::get('same/route', [DebugController::class, 'echo']);
 Route::get('same/route', [DebugController::class, 'log']);
+
+// 测试路由匹配的优先级
+// 请求 `/samepath/same/v1/1` 匹配 samepath/same/v1/{path}
+// 请求 `/samepath/same/v2/1` 匹配 samepath/same/{path}  而不是 samepath/same/v2/{path}
+// 实测结论：按照注册的顺序逐一匹配
+Route::get('samepath/same/v1/{path}', [DebugController::class, 'samePath'])->where('path', '.*');
+Route::get('samepath/same/v11/{path}', [DebugController::class, 'samePath'])->where('path', '.*');
+Route::get('samepath/same/{path}', [DebugController::class, 'samePath'])->where('path', '.*');
+Route::get('samepath/same/v2/{path}', [DebugController::class, 'samePath'])->where('path', '.*');
+Route::get('samepath/same/v12/{path}', [DebugController::class, 'samePath'])->where('path', '.*');
+

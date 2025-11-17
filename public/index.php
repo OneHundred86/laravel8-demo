@@ -2,6 +2,7 @@
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 
 define('LARAVEL_START', microtime(true));
 
@@ -16,7 +17,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+if (file_exists($maintenance = __DIR__ . '/../storage/framework/maintenance.php')) {
     require $maintenance;
 }
 
@@ -31,7 +32,7 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 |
 */
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,17 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+$app = require_once __DIR__ . '/../bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
+
+Route::$validators = [
+    // new Illuminate\Routing\Matching\UriValidator,
+    new Oh86\Test\Routing\Matching\UriValidator,
+    new Illuminate\Routing\Matching\MethodValidator,
+    new Illuminate\Routing\Matching\HostValidator,
+    new Illuminate\Routing\Matching\SchemeValidator,
+];
 
 $response = $kernel->handle(
     $request = Request::capture()

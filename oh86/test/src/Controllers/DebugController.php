@@ -133,4 +133,12 @@ class DebugController
                 cookie($request->name, $request->value)
             );
     }
+
+    public function samePath(Request $request, $path = null)
+    {
+        return [
+            'uri' => $request->getPathInfo(),
+            'path' => $path,
+        ];
+    }
 }
