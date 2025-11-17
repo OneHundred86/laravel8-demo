@@ -1,0 +1,123 @@
+### 配置host
+
+```
+127.0.0.1 	example.com
+127.0.0.1 	a.example.com
+127.0.0.1 	b.example.com
+127.0.0.1 	x.a.example.com
+127.0.0.1 	y.a.example.com
+
+```
+
+
+### 配置nginx
+
+```nginx
+server {
+    listen  80;
+    server_name  example.com a.example.com b.example.com x.a.example.com y.a.example.com;
+
+    charset utf-8;
+
+    access_log  /data/logs/nginx/example.access.log;
+    error_log   /data/logs/nginx/example.error.log;
+
+    location / {
+        add_header Content-Type 'text/plain';
+
+        return 200 '
+        Host: $host
+        Cookie: $http_cookie
+';
+    }
+}
+
+```
+
+
+
+### 设置cookie
+
+##### 注意：使用js设置cookie 和 通过Response使用Set-Cookie响应头设置cookie的语法和作用是一样的。
+
+语法：
+- 多个key-value值，使用分号“;”隔开，最后一个分号可写可不写；
+- 属性值有 expires、path、domain、samesite、httponly等；
+
+
+```text
+
+HTTP/1.1 200 OK
+Server: nginx/1.18.0 (Ubuntu)
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Cache-Control: no-cache, private
+Date: Mon, 17 Nov 2025 02:14:30 GMT
+Vary: Origin
+Set-Cookie: r2=bbb
+Set-Cookie: r1=aaa; domain=example.com
+Set-Cookie: r=aaaa; expires=Mon, 17-Nov-2025 04:14:30 GMT; Max-Age=7200; path=/; domain=example.com; httponly; samesite=lax
+
+```
+
+1. example.com
+
+```javascript
+
+// 没有domain属性，则该cookie只能在本域名（example.com）使用
+document.cookie='u1=a1'   // 没有设置domain属性，则该cookie只能在本域名（example.com）使用，其他域名都使用不了。
+
+// 设置domain=example.com，则 example.com 和它的所有子域名（eg：example.com, a.example.com, b.example.com, x.a.example.com 等）都可以使用该cookie。
+document.cookie='u2=ab; domain=example.com'
+document.cookie='u2=ab; domain=.example.com'   // 作用同上。在现代浏览器中，domain=example.com 和 domain=.example.com 的效果是相同的，都表示匹配 example.com 及其所有子域名。但为了兼容性，通常推荐省略开头的点。
+
+// 只能设置本域名和父域名的cookie，不能设置兄弟和子域名的cookie
+document.cookie='u3=abc; domain=a.example.com'    // 注意：设置失败
+
+// 查看本域名可以使用的cookie
+document.cookie     // 使用js读取cookie（只能读取没有设置 httponly 属性的cookie）。
+                    // 或者使用 DevTools -- Application -- Cookies 查看（可查看所有cookie）。
+
+```
+
+2. a.example.com
+
+```javascript
+
+// 没有domain属性，则该cookie只能在本域名（a.example.com）使用
+document.cookie='a1=a'
+
+// 设置domain=a.example.com，则 a.example.com 和它的所有子域名（eg：a.example.com, x.a.example.com 等）都可以使用该cookie。
+document.cookie='a2=aa; domain=a.example.com'
+// document.cookie='a2=aa; domain=.a.example.com'   // 作用同上。
+
+document.cookie='a3=aaa; domain=example.com'
+
+// 只能设置本域名和父域名的cookie，不能设置兄弟和子域名的cookie
+document.cookie='a4=aaaa; domain=b.example.com'     // 注意：设置失败
+document.cookie='a5-aaaaa; domain=x.a.eample.com'   // 注意：设置失败
+
+// 查看本域名可以使用的cookie
+document.cookie     // 'u2=ab; a1=a; a2=aa; a3=aaa'
+
+```
+
+3. b.example.com
+
+```javascript
+
+// 查看本域名可以使用的cookie
+document.cookie     // 'u2=ab; a3=aaa'
+
+```
+
+4. x.a.example.com
+
+```javascript
+
+// 查看本域名可以使用的cookie
+document.cookie     // 'u2=ab; a2=aa; a3=aaa'
+
+```
+
