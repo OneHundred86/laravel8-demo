@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Oh86\Test\Controllers\DebugController;
 use Oh86\Test\Controllers\PostController;
 use App\Http\Middleware\Middelware1;
 use App\Http\Middleware\Middelware2;
 use Illuminate\Support\Facades\Log;
+use Oh86\Test\Middlewares\AuthenticateOptional;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,16 @@ Route::any("/middleware/order", function () {
     Log::debug("handler");
     return "ok";
 })->middleware([Middelware1::class, Middelware2::class]);
+
+Route::middleware([
+        // 'auth:web',
+    AuthenticateOptional::class . ':web',
+])->get('auth/debug', function () {
+    return [
+        'user' => Auth::user(),
+    ];
+});
+
 
 // 测试相同路由覆盖
 // php artisan route:list --path=same/route
