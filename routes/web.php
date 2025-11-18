@@ -71,10 +71,10 @@ Route::get('samepath/same/v12/{path}', [DebugController::class, 'samePath'])->wh
 
 // cors
 /* 测试用例：
-fetch("http://b.example.com/api/cors/debug", {
+fetch("http://a.example.com/api/cors/debug", {
   "headers": {
-    "cache-control": "no-cache",
-    "pragma": "no-cache"
+    "content-type": "application/json",
+    "h1": "v1",
   },
   "body": null,
   "method": "GET",
@@ -82,20 +82,26 @@ fetch("http://b.example.com/api/cors/debug", {
   "credentials": "include"
 });
 */
+// options 预检请求
 Route::options('cors/debug', function (Request $request) {
-    // options请求和实际请求，都需要添加cors响应头才可以实现跨域请求
-    // options 请求
     return response('')->withHeaders([
-        'Access-Control-Allow-Origin' => $request->header('Origin'),
-        'Access-Control-Allow-Credentials' => 'true',
-        'Access-Control-Allow-Headers' => implode(',', array_keys($request->header())),
+        // 预检请求跨域响应头
+        'Access-Control-Allow-Origin' => $request->header('Origin'),    // 必须
+        'Access-Control-Allow-Credentials' => 'true',           // 如果实际请求需要携带cookie，这需要这个请求头，且设置为true
+        'Access-Control-Allow-Headers' => 'content-type, h1',   // 标明实际请求需要携带的请求头
+        'Access-Control-Allow-Methods' => 'GET, POST, PUT',
+        'Access-Control-Max-Age' => '60',                        // 在有效期内，浏览器无需再次发送预检请求。单位秒。
     ]);
 })->withoutMiddleware(['web']);
-Route::get('cors/debug', function (Request $request) {
-    // 实际请求
-    return response('ok')->withHeaders([
-        'Access-Control-Allow-Origin' => $request->header('Origin'),
-        'Access-Control-Allow-Credentials' => 'true',
-        'Access-Control-Allow-Headers' => implode(',', array_keys($request->header())),
-    ]);
+// 实际请求
+Route::match(['get', 'post', 'put'], 'cors/debug', function (Request $request) {
+    return response([
+        'cookies' => $request->header('cookie'),
+        'h1' => $request->header('h1'),
+        'content-type' => $request->header('content-type'),
+    ])->withHeaders([
+                // 实际请求跨域响应头
+                'Access-Control-Allow-Origin' => $request->header('Origin'),    // 必须
+                'Access-Control-Allow-Credentials' => 'true',   // 如果实际请求需要携带cookie，这需要这个请求头，且设置为true
+            ]);
 })->withoutMiddleware(['web']);
