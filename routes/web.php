@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Oh86\Test\Controllers\DebugController;
@@ -68,3 +69,33 @@ Route::get('samepath/same/{path}', [DebugController::class, 'samePath'])->where(
 Route::get('samepath/same/v2/{path}', [DebugController::class, 'samePath'])->where('path', '.*');
 Route::get('samepath/same/v12/{path}', [DebugController::class, 'samePath'])->where('path', '.*');
 
+// cors
+/* 测试用例：
+fetch("http://b.example.com/api/cors/debug", {
+  "headers": {
+    "cache-control": "no-cache",
+    "pragma": "no-cache"
+  },
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+*/
+Route::options('cors/debug', function (Request $request) {
+    // options请求和实际请求，都需要添加cors响应头才可以实现跨域请求
+    // options 请求
+    return response('')->withHeaders([
+        'Access-Control-Allow-Origin' => $request->header('Origin'),
+        'Access-Control-Allow-Credentials' => 'true',
+        'Access-Control-Allow-Headers' => implode(',', array_keys($request->header())),
+    ]);
+})->withoutMiddleware(['web']);
+Route::get('cors/debug', function (Request $request) {
+    // 实际请求
+    return response('ok')->withHeaders([
+        'Access-Control-Allow-Origin' => $request->header('Origin'),
+        'Access-Control-Allow-Credentials' => 'true',
+        'Access-Control-Allow-Headers' => implode(',', array_keys($request->header())),
+    ]);
+})->withoutMiddleware(['web']);
