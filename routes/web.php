@@ -105,9 +105,13 @@ Route::match(['get', 'post', 'put'], 'cors/debug', function (Request $request) {
         'h1' => $request->header('h1'),
         'content-type' => $request->header('content-type'),
         'datas' => $request->all(),
+        'session' => [
+            'id' => $request->session()->getId(),
+            'datas' => $request->session()->all(),
+        ],
     ])->withHeaders([
                 // 实际请求跨域响应头
                 'Access-Control-Allow-Origin' => $request->header('Origin'),    // 必须，根据请求动态设置
                 'Access-Control-Allow-Credentials' => 'true',   // 如果实际请求需要携带cookie，这需要这个请求头，且设置为true
             ]);
-})->withoutMiddleware(['web']);
+});// ->withoutMiddleware(['web']);
