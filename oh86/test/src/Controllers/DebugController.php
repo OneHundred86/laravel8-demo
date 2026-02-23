@@ -18,6 +18,7 @@ class DebugController
         return [
             "id" => Session::getId(),
             "session" => Session::all(),
+            "ab" => 'test12',
         ];
     }
 

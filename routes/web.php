@@ -8,6 +8,7 @@ use Oh86\Test\Controllers\PostController;
 use App\Http\Middleware\Middelware1;
 use App\Http\Middleware\Middelware2;
 use Illuminate\Support\Facades\Log;
+use Oh86\Test\Controllers\SseController;
 use Oh86\Test\Middlewares\AuthenticateOptional;
 
 /*
@@ -115,3 +116,15 @@ Route::match(['get', 'post', 'put'], 'cors/debug', function (Request $request) {
                 'Access-Control-Allow-Credentials' => 'true',   // 如果实际请求需要携带cookie，这需要这个请求头，且设置为true
             ]);
 });// ->withoutMiddleware(['web']);
+
+
+// sse（server-send-event）
+// SSE 流端点
+// 测试样例：curl -N -v 'http://laravel8.local/sse/stream'
+Route::get('/sse/stream', [SseController::class, 'stream']);
+// 带心跳的 SSE 流
+Route::get('/sse/heartbeat', [SseController::class, 'streamWithHeartbeat']);
+// 前端测试页面
+Route::get('/sse-test', function () {
+    return view('sse-test');
+});
