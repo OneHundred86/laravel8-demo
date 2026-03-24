@@ -23,9 +23,14 @@ class SseController
             // 设置无限执行时间
             set_time_limit(0);
 
+
             // 发送 SSE 头部
             echo "event: connected\n";  // 对应浏览器 eventSource的`connected`事件：eventSource.addEventListener('connected', (e) => {log(`连接事件: ${e.data}`, 'event-connected');});
             echo "data: " . json_encode(['message' => 'SSE 连接已建立', 'time' => now()->toDateTimeString()]) . "\n\n"; // 对应上面的e.data
+            flush();
+
+            // 发送注释（浏览器会忽略这个消息）
+            echo ":ping\n\n";
             flush();
 
             $counter = 0;
@@ -57,7 +62,7 @@ class SseController
 
 
                 核心规则：
-                - 每行以 \n（LF，换行符）结尾
+                - 每行以 \n（LF，换行符）结尾；eg：`data: `
                 - 空行（连续两个 \n）触发消息派发
                 - 字段名大小写敏感
                 - 值前空格会被自动去除
@@ -70,7 +75,7 @@ class SseController
                 | `event` | 否  | 事件类型（默认 `message`） | `event: update` |
                 | `id`    | 否  | 消息 ID（用于断线重连）      | `id: 12345`     |
                 | `retry` | 否  | 重连间隔（毫秒）           | `retry: 5000`   |
-                | `:注释`   | 否  | 注释/心跳（冒号开头）        | `: ping`        |
+                | `:注释`   | 否  | 注释/心跳（冒号开头），保持连接 | `: ping`    |
 
                 */
                 // 发送 SSE 格式数据
