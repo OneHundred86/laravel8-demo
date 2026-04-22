@@ -12,7 +12,6 @@
         "ext-pdo": "*",
         "doctrine/dbal": "^2.2",
         "firebase/php-jwt": "^6.10",
-        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.15",
@@ -21,6 +20,7 @@
         "oh86/laravel-captcha": "dev-main",
         "oh86/laravel-captcha-sms": "dev-main",
         "oh86/laravel-captcha-tencentcloud": "dev-main",
+        "oh86/laravel-cors": "dev-main",
         "oh86/laravel-gw": "*",
         "oh86/laravel-gw-auth": "*",
         "oh86/laravel-hash-sm": "dev-main",
@@ -29,7 +29,7 @@
         "oh86/laravel-sms": "dev-main",
         "oh86/laravel-uploadfile": "dev-main",
         "oh86/laravel-yashan": "*",
-        "oh86/sm_cryptor": "*",
+        "oh86/sm_cryptor": "dev-main",
         "oh86/sqllog": "^1.2",
         "predis/predis": "^3.2",
         "tencentcloud/sms": "^3.0",
@@ -94,6 +94,10 @@
         {
             "type": "path",
             "url": "/data/codes/php/packages/sm_cryptor"
+        },
+        {
+            "type": "path",
+            "url": "/data/codes/php/packages/laravel-cors"
         }
     ]
 }

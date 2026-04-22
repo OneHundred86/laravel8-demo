@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CorsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Oh86\LaravelCors\Middlewares\EnableCors;
 use Oh86\Test\Controllers\DebugController;
 use Oh86\Test\Controllers\PostController;
 use App\Http\Middleware\Middelware1;
@@ -128,3 +130,7 @@ Route::get('/sse/heartbeat', [SseController::class, 'streamWithHeartbeat']);
 Route::get('/sse-test', function () {
     return view('sse-test');
 });
+
+// cors
+Route::match(['get', 'options'], 'cors/demo1', [CorsController::class, 'demo1'])->middleware(EnableCors::class);
+Route::any('cors/demo2', [CorsController::class, 'demo2'])->middleware(EnableCors::class);
