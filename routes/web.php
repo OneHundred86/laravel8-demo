@@ -134,3 +134,14 @@ Route::get('/sse-test', function () {
 // cors
 Route::match(['get', 'options'], 'cors/demo1', [CorsController::class, 'demo1'])->middleware(EnableCors::class);
 Route::any('cors/demo2', [CorsController::class, 'demo2'])->middleware(EnableCors::class);
+/**
+ * // 测试用例：
+    const res = await fetch('http://laravel8.southcn.local/cors/demo1', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Org-Id': '12345',
+        },
+        // credentials: 'include', // 不携带cookie，且浏览器会忽略掉服务端响应的Set-Cookie头
+    });
+ */
