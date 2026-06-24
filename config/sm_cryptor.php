@@ -19,8 +19,8 @@ return [
         "sk" => env("TELECOM_ENCRYPTOR_SK"),
         "eds_node" => env("TELECOM_EDS_NODE"),
         "svs_node" => env("TELECOM_SVS_NODE"),
-        "sm4_key_index" => (int)env("TELECOM_ENCRYPTOR_SM4_KEY_INDEX"),
-        "hmac_key_index" => (int)env("TELECOM_ENCRYPTOR_HMAC_KEY_INDEX"),
+        "sm4_key_index" => (int) env("TELECOM_ENCRYPTOR_SM4_KEY_INDEX"),
+        "hmac_key_index" => (int) env("TELECOM_ENCRYPTOR_HMAC_KEY_INDEX"),
     ],
 
     // 联通密码池加解密
@@ -30,7 +30,7 @@ return [
         "secret_key" => env("UNICOM_ENCRYPTOR_SK"),
         "sm4_key_index" => env("UNICOM_ENCRYPTOR_SM4_KEY_INDEX"),
         "session_key_context" => [
-            "algID" => (int)env("UNICOM_ENCRYPTOR_SESSION_KEY_ALGID"),
+            "algID" => (int) env("UNICOM_ENCRYPTOR_SESSION_KEY_ALGID"),
             "keyID" => env("UNICOM_ENCRYPTOR_SESSION_KEY_KEYID"),
             "encryptedSessionKey" => env("UNICOM_ENCRYPTOR_SESSION_KEY_ENCRYPTED_SESSIONKEY"),
         ],
@@ -38,5 +38,16 @@ return [
 
     "test" => [
         "test" => 123,
+    ],
+
+    'beijingCa' => [
+        'baseUrl' => env('BEIJING_CA_BASEURL'),
+        'appId' => env('BEIJING_CA_APPID'),
+        'deviceId' => env('BEIJING_CA_DEVICE_ID'),
+        'hmacKey' => env('BEIJING_CA_HMAC_KEY'),
+
+        // 主密钥id
+        'sm4KeyId' => env('BEIJING_CA_SM4_KEY_ID'),
+        'hmacKeyId' => env('BEIJING_CA_HMAC_KEY_ID'),
     ],
 ];

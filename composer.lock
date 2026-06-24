@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85a93fd107ba7541902256a7714d68ac",
+    "content-hash": "a09bcefa16b5aafbecc08241e58758ed",
     "packages": [
         {
             "name": "brick/math",
@@ -3118,7 +3118,7 @@
             "dist": {
                 "type": "path",
                 "url": "/data/codes/php/packages/laravel-cors",
-                "reference": "2b3aa3754289ef09b4ca35233c8e98437f4e1a5f"
+                "reference": "0afb879d59aaafc90677036f4af9d800a48400f5"
             },
             "require-dev": {
                 "laravel/framework": "*"
@@ -3361,6 +3361,48 @@
                 }
             ],
             "description": "Laravel database driver for mysql cluster",
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "oh86/laravel-sm-beijing-ca",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/data/codes/php/packages/laravel-sm-beijing-ca",
+                "reference": "4eb4b2f48c78f1bf50a984e352016a3a3bbd7f93"
+            },
+            "require": {
+                "oh86/sm_cryptor": "*",
+                "ramsey/uuid": "*"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "*",
+                "laravel/framework": "^5.4||^6.0||^7.0||^8.0||^9.0||^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Oh86\\LaravelSmBeijingCa\\BeijingCaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Oh86\\LaravelSmBeijingCa\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chengj",
+                    "email": "chen.gj@qq.com"
+                }
+            ],
             "transport-options": {
                 "relative": false
             }

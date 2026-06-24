@@ -36,6 +36,9 @@ class DebugController
     {
         // 所有参数，包括文件的key
         $all = $request->all();
+        $partOfAll = $request->all(['a', 'b']);
+
+        $server = $request->server->all();
 
         // 所有文件
         $allFiles0 = $request->allFiles();
@@ -52,11 +55,12 @@ class DebugController
             $allFiles[$key] = $file->getClientOriginalName();
         }
 
-        return compact("all", "allFiles0", "allFiles", "headers");
+        return compact("all", "partOfAll", "server", "allFiles0", "allFiles", "headers");
     }
 
     public function wait(Request $request)
     {
+        mb_trim(" 　\0hello");
         sleep($request->seconds);
 
         return $request->all();
@@ -90,9 +94,9 @@ class DebugController
         // header("Location: ./test?a=1#abc");
 
         // 以根目录为相对路径
-        URL::forceRootUrl(config("app.url"));
-        // return redirect("test?a=1#abc");
-        return new RedirectResponse("/test?a=1#abc");
+        // URL::forceRootUrl(config("app.url"));
+        return redirect("test?a=1#abc");
+        // return new RedirectResponse("/test?a=1#abc");
     }
 
     public function viewFile()

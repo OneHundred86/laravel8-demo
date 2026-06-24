@@ -26,6 +26,7 @@
         "oh86/laravel-hash-sm": "dev-main",
         "oh86/laravel-http-tools": "*",
         "oh86/laravel-mysql-lb": "*",
+        "oh86/laravel-sm-beijing-ca": "*",
         "oh86/laravel-sms": "dev-main",
         "oh86/laravel-uploadfile": "dev-main",
         "oh86/laravel-yashan": "*",
@@ -98,6 +99,10 @@
         {
             "type": "path",
             "url": "/data/codes/php/packages/laravel-cors"
+        },
+        {
+            "type": "path",
+            "url": "/data/codes/php/packages/laravel-sm-beijing-ca"
         }
     ]
 }
