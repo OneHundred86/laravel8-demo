@@ -60,7 +60,7 @@ class DebugController
 
     public function wait(Request $request)
     {
-        mb_trim(" 　\0hello");
+        abort_if($request->seconds >= 10, 500);
         sleep($request->seconds);
 
         return $request->all();
