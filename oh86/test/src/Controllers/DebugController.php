@@ -55,7 +55,14 @@ class DebugController
             $allFiles[$key] = $file->getClientOriginalName();
         }
 
-        return compact("all", "partOfAll", "server", "allFiles0", "allFiles", "headers");
+        // merge是局部替换，replace是整体替换
+        // $request->replace([...]);
+        $request->merge([
+            'replace' => 'after-replace',
+        ]);
+        $all_after_replace = $request->all();
+
+        return compact("all", "partOfAll", "server", "allFiles0", "allFiles", "headers", "all_after_replace");
     }
 
     public function wait(Request $request)
