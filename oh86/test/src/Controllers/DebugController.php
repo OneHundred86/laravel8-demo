@@ -34,6 +34,10 @@ class DebugController
 
     public function requestBody(Request $request)
     {
+        $request->validate([
+            'phone' => 'nullable|string|regex:/^[0-9]+$/',
+        ]);
+
         // 所有参数，包括文件的key
         $all = $request->all();
         $partOfAll = $request->all(['a', 'b']);
