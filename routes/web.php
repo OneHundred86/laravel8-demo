@@ -33,6 +33,11 @@ Route::any("debug/echo", [DebugController::class, "echo"]);
 Route::any("debug/log", [DebugController::class, "log"]);
 Route::any('debug/cookie', [DebugController::class, 'setCookie']);
 
+// 测试：
+// curl -vv -H'Accept:application/json' 'http://laravel8.local/debug/demo1?title=abc&content=ok'
+// curl -vv -H'Accept:application/json' 'http://laravel8.local/debug/demo1' -H'Content-Type:application/json' -d'{"title":"abc","content":"ok"}'
+Route::any('debug/demo1', [DebugController::class, 'demo1']);
+
 // nginx直接显示：http://my.laravel8.local/README.pdf
 // php显示：http://my.laravel8.local/debug/file/view
 Route::any("debug/file/view", [DebugController::class, "viewFile"]);

@@ -2,6 +2,7 @@
 
 namespace Oh86\Test\Controllers;
 
+use App\Http\Requests\Demo1Request;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -155,6 +156,16 @@ class DebugController
         return [
             'uri' => $request->getPathInfo(),
             'path' => $path,
+        ];
+    }
+
+    public function demo1(Demo1Request $request)
+    {
+        return [
+            'all' => $request->all(),
+
+            'title' => $request->title,
+            'content' => $request->input('content'),
         ];
     }
 }
