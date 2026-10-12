@@ -107,8 +107,14 @@ class DebugController
 
         // 以根目录为相对路径
         // URL::forceRootUrl(config("app.url"));
-        return redirect("test?a=1#abc");
         // return new RedirectResponse("/test?a=1#abc");
+
+        # 浏览器的hash参数
+        # 浏览器访问：http://laravel8.local/debug/redirect#1/2/a
+        // 规则1：如果 3xx 响应里`Location`头**不带 fragment**：浏览器**必须继承原始请求 URL 的 fragment**，拼到新 Location 后面。
+        // return redirect('test');
+        // 规则2：如果`Location`头**本身已经包含 fragment**：**优先使用 Location 自带的 fragment，原始 URL 的 hash 直接丢弃，不再追加**
+        return redirect("test?a=1#abc");
     }
 
     public function viewFile()
