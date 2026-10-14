@@ -111,10 +111,14 @@ class DebugController
 
         # 浏览器的hash参数
         # 浏览器访问：http://laravel8.local/debug/redirect#1/2/a
-        // 规则1：如果 3xx 响应里`Location`头**不带 fragment**：浏览器**必须继承原始请求 URL 的 fragment**，拼到新 Location 后面。
+        ## 规则1：如果 3xx 响应里`Location`头**不带 fragment**：浏览器**必须继承原始请求 URL 的 fragment**，拼到新 Location 后面。
         // return redirect('test');
-        // 规则2：如果`Location`头**本身已经包含 fragment**：**优先使用 Location 自带的 fragment，原始 URL 的 hash 直接丢弃，不再追加**
-        return redirect("test?a=1#abc");
+        ## 规则2：如果`Location`头**本身已经包含 fragment**：**优先使用 Location 自带的 fragment，原始 URL 的 hash 直接丢弃，不再追加**
+        // return redirect("test?a=1#abc");
+        ## 跳转出本域名，也依然使用规则1和规则2
+        // return redirect("http://yhzx.local/test");
+        ## 注意：a标签打开链接、form表单提交等，**前端修改链接的行为，浏览器是不会继承原先的fragment的**。
+        return 'ok';
     }
 
     public function viewFile()

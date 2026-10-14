@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表单提交hash测试</title>
+</head>
+
+<body>
+    <h3>当前页面hash: <span id="hashVal"></span></h3>
+
+    <!-- 普通表单POST提交 -->
+    <form action="/debug/redirect" method="post">
+        <!-- Laravel 需要CSRF令牌，这里先占位 -->
+        <input type="hidden" name="_token" value="PUT_YOUR_CSRF_TOKEN_HERE">
+        <button type="submit">POST提交，后端302跳转</button>
+    </form>
+
+    <a href="/test-hash-form.html#a1">a标签打开链接</a>
+
+    <script>
+        function updateHash() {
+            document.getElementById('hashVal').innerText = location.hash || '(empty)';
+        }
+        updateHash();
+        window.addEventListener('hashchange', updateHash);
+    </script>
+</body>
+
+</html>
